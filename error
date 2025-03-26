@@ -684,6 +684,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             name='test',
             components=[test_sound, key_resp_2, fixationcross],
         )
+        response_clock = core.Clock()
         test.status = NOT_STARTED
         continueRoutine = True
         # update component parameters for each repeat
@@ -1228,6 +1229,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         
         # --- Prepare to start Routine "test" ---
         # create an object to store info about Routine test
+        response_clock = core.Clock()
         test = data.Routine(
             name='test',
             components=[test_sound, key_resp_2, fixationcross],
