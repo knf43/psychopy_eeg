@@ -1,12 +1,10 @@
-import pandas as pd
-
 # Convert conditions list to DataFrame
-practice_df = pd.DataFrame(practice_conditions)
+trials_df = pd.DataFrame(trials_conditions)
 
-# Group by sentence ID (e.g., p1, p2, p3, p4) extracted from 'sounds' column
-practice_selected_rows = (
-    practice_df
-    .groupby(practice_df['sounds'].str.extract(r'(p\d)')[0])
+# Group by sentence ID (e.g., 1, 2, 3, ...) extracted from 'sounds' column
+trials_selected_rows = (
+    trials_df
+    .groupby(trials_df['sounds'].str.extract(r'/(\d+)')[0])
     .apply(lambda x: x.sample(1))
     .reset_index(drop=True)
     .to_dict(orient='records')
