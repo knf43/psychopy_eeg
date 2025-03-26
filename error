@@ -1,6 +1,7 @@
-## Running: C:\Users\eegadmin\Desktop\Psychopy experiment Kaylee - Copy\LangExperimentstress_lastrun.py ##
+# Running: C:\Users\eegadmin\Desktop\Psychopy experiment Kaylee - Copy\LangExperimentstress_lastrun.py ##
 failed to import GLFW.
 Controller connected: Controller (Gamepad F310)
+Traceback (most recent call last):
 Error in function Open:     Usage error
 Audio output requested, but there isn't any audio output device available or you provided a deviceid for something else than an output device!
 PsychPortAudio:Open: Usage:
@@ -10,12 +11,16 @@ Failed to load audio device:
     '1.0'
 so fetching default audio device instead: 
     'test'
-3.5028     WARNING     psychopy.parallel has been imported but no parallel port driver found. Install either inpout32, inpoutx64 or dlportio
-3.5787     ERROR     You need to open a window before creating your joystick
-7.7405     ERROR     No speaker device found with index 1
-29.2180     WARNING     Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
-29.2423     WARNING     Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
-29.2424     WARNING     Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
-29.2425     WARNING     Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
-29.2425     WARNING     Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
-################ Experiment ended with exit code 0 [pid:12376] #################
+3.5153     WARNING     psychopy.parallel has been imported but no parallel port driver found. Install either inpout32, inpoutx64 or dlportio
+7.4075     ERROR     No speaker device found with index 1
+  File "C:\Users\eegadmin\Desktop\Psychopy experiment Kaylee - Copy\LangExperimentstress_lastrun.py", line 1798, in <module>
+    run(
+  File "C:\Users\eegadmin\Desktop\Psychopy experiment Kaylee - Copy\LangExperimentstress_lastrun.py", line 785, in run
+    _#key_resp_2_allKeys.extend(theseKeys)
+NameError: name '_' is not defined
+15.3640     WARNING     Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+15.4185     WARNING     Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+15.4185     WARNING     Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+15.4185     WARNING     Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+15.4185     WARNING     Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+################# Experiment ended with exit code 1 [pid:7484] #################
