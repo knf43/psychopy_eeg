@@ -1,10 +1,14 @@
-if key_resp_3.status == STARTED and not waitOnFlip:
-    # Step 1: Wait until the button is released
-    while joy.getAllButtons()[1]:
-        core.wait(0.01)
+ if key_resp_3.status == STARTED and not waitOnFlip:
+            # Step 1: Wait until the button is released
+            while joy.getAllButtons()[1]:
+                core.wait(0.01)
+                
+            response_clock.reset()
 
-    # Step 2: Wait for a new press
-    while not joy.getAllButtons()[1]:
-        core.wait(0.01)
-
-    continueRoutine = False
+            # Step 2: Wait for a new press
+            while not joy.getAllButtons()[1]:
+                core.wait(0.01)
+            
+            key_response_3.rt = response_clock.getTime()
+            key_resp_3.keys = 'b' #log the button press
+            continueRoutine = False
