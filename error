@@ -1,0 +1,21 @@
+## Running: C:\Users\eegadmin\Desktop\Psychopy experiment Kaylee - Copy\LangExperimentstress_lastrun.py ##
+failed to import GLFW.
+Controller connected: Controller (Gamepad F310)
+Error in function Open:     Usage error
+Audio output requested, but there isn't any audio output device available or you provided a deviceid for something else than an output device!
+PsychPortAudio:Open: Usage:
+
+pahandle = PsychPortAudio('Open' [, deviceid][, mode][, reqlatencyclass][, freq][, channels][, buffersize][, suggestedLatency][, selectchannels][, specialFlags=0]);
+Failed to load audio device:
+    '1.0'
+so fetching default audio device instead: 
+    'test'
+3.5028     WARNING     psychopy.parallel has been imported but no parallel port driver found. Install either inpout32, inpoutx64 or dlportio
+3.5787     ERROR     You need to open a window before creating your joystick
+7.7405     ERROR     No speaker device found with index 1
+29.2180     WARNING     Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+29.2423     WARNING     Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+29.2424     WARNING     Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+29.2425     WARNING     Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+29.2425     WARNING     Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+################ Experiment ended with exit code 0 [pid:12376] #################
