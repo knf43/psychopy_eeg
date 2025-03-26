@@ -1,26 +1,21 @@
-# Running: C:\Users\eegadmin\Desktop\Psychopy experiment Kaylee - Copy\LangExperimentstress_lastrun.py ##
+## Running: C:\Users\eegadmin\Desktop\Psychopy experiment Kaylee - Copy\LangExperimentstress_lastrun.py ##
 failed to import GLFW.
 Controller connected: Controller (Gamepad F310)
-Traceback (most recent call last):
+{'Headphones (Realtek(R) Audio)': {'DeviceIndex': 5.0, 'HostAudioAPIId': 13.0, 'HostAudioAPIName': 'Windows WASAPI', 'DeviceName': 'Headphones (Realtek(R) Audio)', 'NrInputChannels': 0.0, 'NrOutputChannels': 2.0, 'LowInputLatency': 0.0, 'HighInputLatency': 0.0, 'LowOutputLatency': 0.003, 'HighOutputLatency': 0.01, 'DefaultSampleRate': 48000.0, 'id': 0}, 'Speakers (Realtek(R) Audio)': {'DeviceIndex': 6.0, 'HostAudioAPIId': 13.0, 'HostAudioAPIName': 'Windows WASAPI', 'DeviceName': 'Speakers (Realtek(R) Audio)', 'NrInputChannels': 0.0, 'NrOutputChannels': 2.0, 'LowInputLatency': 0.0, 'HighInputLatency': 0.0, 'LowOutputLatency': 0.003, 'HighOutputLatency': 0.01, 'DefaultSampleRate': 48000.0, 'id': 1}, 'Microphone Array (Realtek(R) Audio)': {'DeviceIndex': 7.0, 'HostAudioAPIId': 13.0, 'HostAudioAPIName': 'Windows WASAPI', 'DeviceName': 'Microphone Array (Realtek(R) Audio)', 'NrInputChannels': 2.0, 'NrOutputChannels': 0.0, 'LowInputLatency': 0.003, 'HighInputLatency': 0.01, 'LowOutputLatency': 0.0, 'HighOutputLatency': 0.0, 'DefaultSampleRate': 48000.0, 'id': 2}, 'Headphones (Realtek(R) Audio) [Loopback]': {'DeviceIndex': 8.0, 'HostAudioAPIId': 13.0, 'HostAudioAPIName': 'Windows WASAPI', 'DeviceName': 'Headphones (Realtek(R) Audio) [Loopback]', 'NrInputChannels': 2.0, 'NrOutputChannels': 0.0, 'LowInputLatency': 0.003, 'HighInputLatency': 0.01, 'LowOutputLatency': 0.0, 'HighOutputLatency': 0.0, 'DefaultSampleRate': 48000.0, 'id': 3}, 'Speakers (Realtek(R) Audio) [Loopback]': {'DeviceIndex': 9.0, 'HostAudioAPIId': 13.0, 'HostAudioAPIName': 'Windows WASAPI', 'DeviceName': 'Speakers (Realtek(R) Audio) [Loopback]', 'NrInputChannels': 2.0, 'NrOutputChannels': 0.0, 'LowInputLatency': 0.003, 'HighInputLatency': 0.01, 'LowOutputLatency': 0.0, 'HighOutputLatency': 0.0, 'DefaultSampleRate': 48000.0, 'id': 4}}
 Error in function Open:     Usage error
 Audio output requested, but there isn't any audio output device available or you provided a deviceid for something else than an output device!
 PsychPortAudio:Open: Usage:
 
 pahandle = PsychPortAudio('Open' [, deviceid][, mode][, reqlatencyclass][, freq][, channels][, buffersize][, suggestedLatency][, selectchannels][, specialFlags=0]);
 Failed to load audio device:
-    '1.0'
+    '1'
 so fetching default audio device instead: 
     'test'
-3.5153     WARNING     psychopy.parallel has been imported but no parallel port driver found. Install either inpout32, inpoutx64 or dlportio
-7.4075     ERROR     No speaker device found with index 1
-  File "C:\Users\eegadmin\Desktop\Psychopy experiment Kaylee - Copy\LangExperimentstress_lastrun.py", line 1798, in <module>
-    run(
-  File "C:\Users\eegadmin\Desktop\Psychopy experiment Kaylee - Copy\LangExperimentstress_lastrun.py", line 785, in run
-    _#key_resp_2_allKeys.extend(theseKeys)
-NameError: name '_' is not defined
-15.3640     WARNING     Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
-15.4185     WARNING     Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
-15.4185     WARNING     Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
-15.4185     WARNING     Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
-15.4185     WARNING     Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
-################# Experiment ended with exit code 1 [pid:7484] #################
+3.7919     WARNING     psychopy.parallel has been imported but no parallel port driver found. Install either inpout32, inpoutx64 or dlportio
+7.8803     ERROR     No speaker device found with index 1
+9.9752     WARNING     Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+10.0292     WARNING     Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+10.0293     WARNING     Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+10.0293     WARNING     Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+10.0293     WARNING     Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+################# Experiment ended with exit code 0 [pid:2452] #################
