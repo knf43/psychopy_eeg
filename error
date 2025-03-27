@@ -1,9 +1,9 @@
-import serial
-
-# Initialize the serial port for the TriggerBox (COM3)
-try:
-    trigger_serial = serial.Serial('COM3', baudrate=115200, timeout=0)
-    print("TriggerBox connected on COM3")
-except serial.SerialException as e:
-    print("Error: TriggerBox not connected. Triggers will not be sent.")
-    trigger_serial = None
+# --- Trigger sending function ---
+def send_trigger(trigger_code):
+    """
+    Sends a single trigger code through the serial port to the TriggerBox.
+    """
+    if trigger_serial:
+        trigger_serial.write(bytes([trigger_code]))
+        core.wait(0.005)  # Wait for 5 ms
+        trigger_serial.write(bytes([0]))  # Reset to 0
