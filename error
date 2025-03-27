@@ -1,9 +1,5 @@
-  File "C:\Users\eegadmin\Desktop\Psychopy experiment Kaylee - Copy\LangExperimentstress_lastrun.py", line 763, in run
-    now = trialClock.getTime()
-UnboundLocalError: local variable 'trialClock' referenced before assignment
-2.8192     WARNING     Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
-2.8811     WARNING     Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
-2.8812     WARNING     Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
-2.8813     WARNING     Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
-2.8813     WARNING     Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
-################# Experiment ended with exit code 1 [pid:6620] #################
+            now = trialClock.getTime()
+            if next_trigger_index < len(trigger_times) and now >= trigger_times[next_trigger_index]:
+                send_trigger(trigger_codes[next_trigger_index])
+                next_trigger_index += 1
+            # update/draw components on each frame
