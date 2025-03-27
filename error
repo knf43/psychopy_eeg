@@ -1,4 +1,9 @@
-trialClock = core.Clock()  # Initialize before loop
-trigger_times = []
-trigger_codes = []
-next_trigger_index = 0
+File "C:\Users\eegadmin\Desktop\Psychopy experiment Kaylee - Copy\LangExperimentstress_lastrun.py", line 763, in run
+    now = trialClock.getTime()
+UnboundLocalError: local variable 'trialClock' referenced before assignment
+1.4458     WARNING     Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+1.4639     WARNING     Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+1.4640     WARNING     Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+1.4640     WARNING     Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+1.4640     WARNING     Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
+################ Experiment ended with exit code 1 [pid:14400] #################
