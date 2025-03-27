@@ -1,5 +1,5 @@
-            now = trialClock.getTime()
-            if next_trigger_index < len(trigger_times) and now >= trigger_times[next_trigger_index]:
-                send_trigger(trigger_codes[next_trigger_index])
-                next_trigger_index += 1
-            # update/draw components on each frame
+# Prepare trialClock and trigger variables
+trialClock = core.Clock()
+trigger_times = []
+trigger_codes = []
+next_trigger_index = 0
