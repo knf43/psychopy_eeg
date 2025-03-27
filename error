@@ -1,8 +1,7 @@
-trigger_codes = [
-    int(ID_item),
-    int(ID_senonset),
-    int(ID_verbonset),
-    int(ID_F0),
-    int(ID_suffix),
-    int(ID_2_F0),
-]
+############### Experiment ended with exit code 0 [pid:11916] #################
+## Running: C:\Users\eegadmin\Desktop\Psychopy experiment Kaylee - Copy\LangExperimentstress_lastrun.py ##
+  File "C:\Users\eegadmin\Desktop\Psychopy experiment Kaylee - Copy\LangExperimentstress_lastrun.py", line 1952
+    expInfo=expInfo, triggre
+                     ^^^^^^^
+SyntaxError: invalid syntax. Perhaps you forgot a comma?
+################# Experiment ended with exit code 1 [pid:3336] #################
