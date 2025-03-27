@@ -1,17 +1,5 @@
-## Running: C:\Users\eegadmin\Desktop\Psychopy experiment Kaylee - Copy\LangExperimentstress_lastrun.py ##
-failed to import GLFW.
-TriggerBox connected on COM3
-Controller connected: Controller (Gamepad F310)
-Traceback (most recent call last):
-5.9745     WARNING     psychopy.parallel has been imported but no parallel port driver found. Install either inpout32, inpoutx64 or dlportio
-  File "C:\Users\eegadmin\Desktop\Psychopy experiment Kaylee - Copy\LangExperimentstress_lastrun.py", line 1882, in <module>
-    run(
-  File "C:\Users\eegadmin\Desktop\Psychopy experiment Kaylee - Copy\LangExperimentstress_lastrun.py", line 763, in run
-    now = trialClock.getTime()
-UnboundLocalError: local variable 'trialClock' referenced before assignment
-3.6106     WARNING     Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
-3.6722     WARNING     Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
-3.6722     WARNING     Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
-3.6723     WARNING     Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
-3.6723     WARNING     Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
-################ Experiment ended with exit code 1 [pid:11952] #################
+# Prepare trialClock and trigger vars so they exist before the loop
+trialClock = core.Clock()
+trigger_times = []
+trigger_codes = []
+next_trigger_index = 0
