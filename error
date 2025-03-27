@@ -1,5 +1,12 @@
-# Prepare trialClock and trigger variables
-trialClock = core.Clock()
-trigger_times = []
-trigger_codes = []
+# Reset and prepare trigger variables at the beginning of the trial
+trialClock = core.Clock()  # reset trial clock
+trigger_times = [
+    float(trigger_item),
+    float(trigger_senonset),
+    float(trigger_verbsonset),
+    float(trigger_1_F0),
+    float(trigger_suffix),
+    float(trigger_2_F0),
+]
+trigger_codes = [1, 2, 3, 4, 5, 6]  # or whatever codes you defined
 next_trigger_index = 0
