@@ -1090,6 +1090,11 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     
     # --- Run Routine "test_instructions_2" ---
     test_instructions_2.forceEnded = routineForceEnded = not continueRoutine
+    
+    minDuration = 10
+    instructionClock = core.Clock()
+    instructionClock.reset()
+    
     while continueRoutine:
         # get current time
         t = routineTimer.getTime()
@@ -1138,10 +1143,9 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             win.callOnFlip(key_resp_3.clearEvents, eventType='keyboard')  # clear events on next screen flip
         if key_resp_3.status == STARTED and not waitOnFlip:
             buttons = joy.getAllButtons()
-            if buttons[1] and not button_was_down:
-                response_clock.reset()
-                key_resp_3.rt = response_clock.getTime()
+            if buttons[1] and instructionClock.getTime() >= minDuration:
                 key_resp_3.keys = 'b' #log the button press
+                key_resp_3.rt = instructionClock.getTime()
                 continueRoutine = False
             
             #Update flag
