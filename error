@@ -1,9 +1,32 @@
-# --- Trigger sending function ---
-def send_trigger(trigger_code):
-    """
-    Sends a single trigger code through the serial port to the TriggerBox.
-    """
-    if trigger_serial:
-        trigger_serial.write(bytes([trigger_code]))
-        core.wait(0.005)  # Wait for 5 ms
-        trigger_serial.write(bytes([0]))  # Reset to 0
+# Reset trial clock and play sound
+trialClock.reset()
+test_sound.play()
+
+# Get the relative timestamps for this trial
+trigger_times = [
+    trialClock.getTime() + float(thisTest.trigger_item),
+    trialClock.getTime() + float(thisTest.trigger_senonset),
+    trialClock.getTime() + float(thisTest.trigger_verbsonset),
+    trialClock.getTime() + float(thisTest.trigger_1_F0),
+    trialClock.getTime() + float(thisTest.trigger_suffix),
+    trialClock.getTime() + float(thisTest.trigger_2_F0),
+]
+trigger_codes = [1, 2, 3, 4, 5, 6]  # Arbitrary codes, make sure they match your recording software's expectations
+
+# Index to track which trigger is next
+next_trigger_index = 0
+
+# Start listening for responses
+while continueRoutine:
+    now = trialClock.getTime()
+
+    # Send the next trigger at the right time
+    if next_trigger_index < len(trigger_times) and now >= trigger_times[next_trigger_index]:
+        send_trigger(trigger_codes[next_trigger_index])
+        next_trigger_index += 1
+
+    # (Your existing response collection, joystick, fixation logic, etc. goes here)
+
+    # Refresh the window, etc.
+    if continueRoutine:
+        win.flip()
