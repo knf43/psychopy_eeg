@@ -1,27 +1,37 @@
-# Load and process practice stimuli
+# Load the conditions from the Excel file  
 practice_conditions = data.importConditions('conditions_stress_practice.xlsx')
-import pandas as pd
-from random import sample
 
+import pandas as pd
+import random
+
+# Convert conditions list to DataFrame
 practice_df = pd.DataFrame(practice_conditions)
 
-# Add sentence_id and condition columns
+# Add a column for sentence ID and condition letter
 practice_df['sentence_id'] = practice_df['sounds'].str.extract(r'(p\d)')[0]
 practice_df['condition'] = practice_df['sounds'].str.extract(r'p\d([a-d])')[0]
 
-# Group by sentence ID and randomly select one version per sentence
-grouped = practice_df.groupby('sentence_id')
-unique_sentences = grouped.apply(lambda g: g.sample(1)).reset_index(drop=True)
+# Define fixed, pre-balanced practice orders
+practice_orders = [
+    [('p1', 'a'), ('p2', 'b'), ('p3', 'c'), ('p4', 'd')],
+    [('p1', 'b'), ('p2', 'c'), ('p3', 'd'), ('p4', 'a')],
+    [('p1', 'c'), ('p2', 'd'), ('p3', 'a'), ('p4', 'b')],
+    [('p1', 'd'), ('p2', 'a'), ('p3', 'b'), ('p4', 'c')]
+]
 
-# Now filter this list to ensure one of each condition
-practice_selected_df = (
-    unique_sentences.groupby('condition', group_keys=False)
-    .apply(lambda g: g.sample(1))
-    .reset_index(drop=True)
-)
+# Select one practice order at random
+selected_order = random.choice(practice_orders)
 
-# Shuffle for randomness
-practice_selected_df = practice_selected_df.sample(frac=1).reset_index(drop=True)
+# Extract rows that match the selected order
+practice_selected_rows = []
+for sid, cond in selected_order:
+    match = practice_df[
+        (practice_df['sentence_id'] == sid) & (practice_df['condition'] == cond)
+    ]
+    if not match.empty:
+        practice_selected_rows.append(match.sample(1).iloc[0])
+    else:
+        raise ValueError(f"No match found for sentence {sid} condition {cond}")
 
-# Convert to list of dicts
-practice_selected_rows = practice_selected_df.to_dict(orient='records')
+# Convert to list of dicts for PsychoPy TrialHandler
+practice_selected_rows = [row.to_dict() for row in practice_selected_rows]
