@@ -1,8 +1,5 @@
-expInfo = {
-    'participant': '',
-    'session': '001',
-    'version': '1',  # Add version selection
-    'date|hid': data.getDateStr(),
-    'expName|hid': expName,
-    'psychopyVersion|hid': psychopyVersion,
-}
+# Determine correct answer mapping based on selected version
+if expInfo['version'] == '1':
+    button_mapping = {'num_1': 'left', 'num_2': 'right'}
+else:
+    button_mapping = {'num_1': 'right', 'num_2': 'left'}
