@@ -1,4 +1,6 @@
-if thisTrial != None:
-    for paramName in thisTrial:
-        globals()[paramName] = thisTrial[paramName]
-    corrAns = button_mapping[corrAns]
+# Determine if the response was correct
+if key_resp_2.keys is not None:
+    if key_resp_2.keys == corrAns:
+        key_resp_2.corr = 1
+    else:
+        key_resp_2.corr = 0
