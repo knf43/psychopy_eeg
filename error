@@ -1,18 +1,12 @@
-import pandas as pd
-from random import sample
-
-# Convert to DataFrame and extract ID + condition
-practice_df = pd.DataFrame(practice_conditions)
-practice_df['sentence_id'] = practice_df['sounds'].str.extract(r'(p\d)')[0]
-practice_df['condition'] = practice_df['sounds'].str.extract(r'p\d([a-d])')[0]
-
-# Pick exactly 1 sentence per condition
+# Select exactly 1 sentence from each condition (a, b, c, d), ensuring each is unique
 practice_selected_rows = []
 for cond in ['a', 'b', 'c', 'd']:
     subset = practice_df[practice_df['condition'] == cond]
     row = subset.sample(1)
     practice_selected_rows.append(row)
 
-# Shuffle and prepare for PsychoPy
+# Combine and shuffle the rows
 practice_selected_df = pd.concat(practice_selected_rows).sample(frac=1).reset_index(drop=True)
+
+# Convert to list of dictionaries for TrialHandler2
 practice_selected_rows = practice_selected_df.to_dict(orient='records')
