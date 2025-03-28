@@ -1,18 +1,27 @@
+# Load and process practice stimuli
+practice_conditions = data.importConditions('conditions_stress_practice.xlsx')
 import pandas as pd
 from random import sample
 
-# Convert to DataFrame and extract ID + condition
 practice_df = pd.DataFrame(practice_conditions)
+
+# Add sentence_id and condition columns
 practice_df['sentence_id'] = practice_df['sounds'].str.extract(r'(p\d)')[0]
 practice_df['condition'] = practice_df['sounds'].str.extract(r'p\d([a-d])')[0]
 
-# Pick exactly 1 sentence per condition
-practice_selected_rows = []
-for cond in ['a', 'b', 'c', 'd']:
-    subset = practice_df[practice_df['condition'] == cond]
-    row = subset.sample(1)
-    practice_selected_rows.append(row)
+# Group by sentence ID and randomly select one version per sentence
+grouped = practice_df.groupby('sentence_id')
+unique_sentences = grouped.apply(lambda g: g.sample(1)).reset_index(drop=True)
 
-# Shuffle and prepare for PsychoPy
-practice_selected_df = pd.concat(practice_selected_rows).sample(frac=1).reset_index(drop=True)
+# Now filter this list to ensure one of each condition
+practice_selected_df = (
+    unique_sentences.groupby('condition', group_keys=False)
+    .apply(lambda g: g.sample(1))
+    .reset_index(drop=True)
+)
+
+# Shuffle for randomness
+practice_selected_df = practice_selected_df.sample(frac=1).reset_index(drop=True)
+
+# Convert to list of dicts
 practice_selected_rows = practice_selected_df.to_dict(orient='records')
