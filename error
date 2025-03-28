@@ -1,4 +1,4 @@
-if thisPractice != None:
-    for paramName in thisPractice:
-        globals()[paramName] = thisPractice[paramName]
+if thisTrial != None:
+    for paramName in thisTrial:
+        globals()[paramName] = thisTrial[paramName]
     corrAns = button_mapping[corrAns]
