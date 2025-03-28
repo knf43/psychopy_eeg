@@ -1,37 +1,48 @@
-# Load the conditions from the Excel file  
-practice_conditions = data.importConditions('conditions_stress_practice.xlsx')
-
+# Load the experimental conditions
+trials_conditions = data.importConditions('conditions_stress.xlsx')
 import pandas as pd
 import random
 
-# Convert conditions list to DataFrame
-practice_df = pd.DataFrame(practice_conditions)
+# Convert to DataFrame
+trials_df = pd.DataFrame(trials_conditions)
 
-# Add a column for sentence ID and condition letter
-practice_df['sentence_id'] = practice_df['sounds'].str.extract(r'(p\d)')[0]
-practice_df['condition'] = practice_df['sounds'].str.extract(r'p\d([a-d])')[0]
+# Extract sentence_id (e.g., '01', '02') and condition (a-d)
+trials_df['sentence_id'] = trials_df['sounds'].str.extract(r'(\d+)')[0]
+trials_df['condition'] = trials_df['sounds'].str.extract(r'\d+([a-d])')[0]
 
-# Define fixed, pre-balanced practice orders
-practice_orders = [
-    [('p1', 'a'), ('p2', 'b'), ('p3', 'c'), ('p4', 'd')],
-    [('p1', 'b'), ('p2', 'c'), ('p3', 'd'), ('p4', 'a')],
-    [('p1', 'c'), ('p2', 'd'), ('p3', 'a'), ('p4', 'b')],
-    [('p1', 'd'), ('p2', 'a'), ('p3', 'b'), ('p4', 'c')]
-]
+# Shuffle sentence IDs and assign 10 to each condition group without duplication
+sentence_ids = trials_df['sentence_id'].unique().tolist()
+random.shuffle(sentence_ids)
 
-# Select one practice order at random
-selected_order = random.choice(practice_orders)
+cond_map = ['a', 'b', 'c', 'd']
+condition_assignments = {}
+for i, sid in enumerate(sentence_ids[:40]):  # Limit to 40 total trials
+    cond = cond_map[i % 4]
+    condition_assignments[sid] = cond
 
-# Extract rows that match the selected order
-practice_selected_rows = []
-for sid, cond in selected_order:
-    match = practice_df[
-        (practice_df['sentence_id'] == sid) & (practice_df['condition'] == cond)
-    ]
+# Select exactly one sentence per ID, matching the assigned condition
+selected_rows = []
+for sid, cond in condition_assignments.items():
+    match = trials_df[(trials_df['sentence_id'] == sid) & (trials_df['condition'] == cond)]
     if not match.empty:
-        practice_selected_rows.append(match.sample(1).iloc[0])
-    else:
-        raise ValueError(f"No match found for sentence {sid} condition {cond}")
+        selected_rows.append(match.sample(1))  # pick 1 matching row
 
-# Convert to list of dicts for PsychoPy TrialHandler
-practice_selected_rows = [row.to_dict() for row in practice_selected_rows]
+# Combine and shuffle
+trials_selected_df = pd.concat(selected_rows).sample(frac=1).reset_index(drop=True)
+trials_selected_rows = trials_selected_df.to_dict(orient='records')
+
+# Set up handler to look after randomisation of conditions
+trials = data.TrialHandler2(
+    name='trials',
+    nReps=1,
+    method='sequential',
+    extraInfo=expInfo,
+    originPath=-1,
+    trialList=trials_selected_rows,
+    seed=None,
+)
+thisExp.addLoop(trials)
+thisTrial = trials.trialList[0]
+if thisTrial is not None:
+    for paramName in thisTrial:
+        globals()[paramName] = thisTrial[paramName]
