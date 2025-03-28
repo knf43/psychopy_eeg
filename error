@@ -1,1 +1,2 @@
-expInfo['experiment_version'] = experiment_version
+  experiment_version = expInfo.get('experiment_version')  # Step 2
+  expInfo['experiment_version'] = experiment_version      
