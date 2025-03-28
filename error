@@ -1,2 +1,6 @@
-  experiment_version = expInfo.get('experiment_version')  # Step 2
-  expInfo['experiment_version'] = experiment_version      
+# Determine if response is correct using the correct_answer_map
+expected_button = correct_answer_map.get(corrAns)
+if key_resp_2.keys == expected_button:
+    key_resp_2.corr = 1
+else:
+    key_resp_2.corr = 0
