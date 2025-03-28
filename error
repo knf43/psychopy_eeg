@@ -1,18 +1,33 @@
-# Add a column for sentence ID and condition letter
-practice_df['sentence_id'] = practice_df['sounds'].str.extract(r'(p\d)')[0]
-practice_df['condition'] = practice_df['sounds'].str.extract(r'p\d([a-d])')[0]
+# Load the conditions from the Excel file  
+trials_conditions = data.importConditions('conditions_stress.xlsx')
 
-# Ensure 4 unique sentence_ids and one of each condition
+import pandas as pd
 from random import sample
 
-# Group by sentence_id and pick one version
-grouped = practice_df.groupby('sentence_id')
-one_per_sentence = grouped.apply(lambda g: g.sample(1)).reset_index(drop=True)
+# Convert conditions list to DataFrame
+trials_df = pd.DataFrame(trials_conditions)
 
-# Randomly choose 1 of each condition (a, b, c, d)
-balanced = (
-    one_per_sentence.groupby('condition', group_keys=False)
-    .apply(lambda g: g.sample(1))
-)
+# Extract sentence_id and condition from file names
+trials_df['sentence_id'] = trials_df['sounds'].str.extract(r'(\d+)')[0]
+trials_df['condition'] = trials_df['sounds'].str.extract(r'\d+([a-d])')[0]
 
-practice_selected_rows = balanced.to_dict(orient='records')
+# Create a list to hold the selected rows
+selected_rows = []
+
+# For each condition a-d, select 10 unique sentence_ids and 1 matching row per sentence
+for cond in ['a', 'b', 'c', 'd']:
+    subset = trials_df[trials_df['condition'] == cond]
+    
+    # Sample 10 unique sentence_ids
+    sampled_ids = sample(subset['sentence_id'].unique().tolist(), 10)
+    
+    # For each ID, pick the corresponding row
+    for sid in sampled_ids:
+        row = subset[subset['sentence_id'] == sid].sample(1)
+        selected_rows.append(row)
+
+# Combine and shuffle the selected rows
+trials_selected_df = pd.concat(selected_rows).sample(frac=1).reset_index(drop=True)
+
+# Convert to list of dictionaries for PsychoPy
+trials_selected_rows = trials_selected_df.to_dict(orient='records')
