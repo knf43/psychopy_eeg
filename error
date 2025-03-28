@@ -1,1 +1,11 @@
-trials.addData('corrAns', corrAns)
+# Determine correctness based on version
+expected_key = None
+if experiment_version == '1':
+    expected_key = 'left' if corrAns == 'num_1' else 'right'
+elif experiment_version == '2':
+    expected_key = 'left' if corrAns == 'num_2' else 'right'
+
+if key_resp_2.keys == expected_key:
+    key_resp_2.corr = 1
+else:
+    key_resp_2.corr = 0
