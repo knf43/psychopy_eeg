@@ -1,5 +1,1 @@
-corrAns = button_mapping[thisPractice['corrAns']]
-
-
-
-corrAns = button_mapping[thisTrial['corrAns']]
+expected_button = button_mapping.get(corrAns)
