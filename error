@@ -1,36 +1,7 @@
-# Define your triggers (convert ms → sec!)
-trigger_times_sec = [
-    float(trigger_item) / 1000.0,
-    float(trigger_senonset) / 1000.0,
-    float(trigger_verbsonset) / 1000.0,
-    float(trigger_1_F0) / 1000.0,
-    float(trigger_suffix) / 1000.0,
-    float(trigger_2_F0) / 1000.0,
-]
-trigger_codes = [
-    int(ID_item),
-    int(ID_senonset),
-    int(ID_verbonset),
-    int(ID_1_F0),
-    int(ID_suffix),
-    int(ID_2_F0),
-]
-
-# Start the clock AFTER playing the sound
-trialClock = core.Clock()
-test_sound.play()
-
-# Send triggers at the correct times
-next_trigger_index = 0
-n_triggers = len(trigger_times_sec)
-while next_trigger_index < n_triggers:
-    now = trialClock.getTime()
-    if now >= trigger_times_sec[next_trigger_index]:
-        send_trigger(trigger_codes[next_trigger_index])
-        print(
-            f"Trigger {trigger_codes[next_trigger_index]} sent at {now:.3f} sec "
-            f"(expected: {trigger_times_sec[next_trigger_index]:.3f} sec)"
-        )
-        next_trigger_index += 1
-    else:
-        core.wait(0.001)
+Check your playback timing or use the 'Stop' function properly!
+Trigger 101 sent at 0.000146 sec 
+Trigger 20 sent at 0.007074 sec 
+Trigger 21 sent at 0.013576 sec 
+Trigger 22 sent at 0.021752 sec 
+Trigger 23 sent at 0.029861 sec 
+Trigger 24 sent at 0.037224 sec 
