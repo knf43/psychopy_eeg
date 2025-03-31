@@ -1,13 +1,9 @@
+# Play sound and capture flip time as audio onset
 test_sound.play()
+audio_onset_global = win.getFutureFlipTime(clock='ptb')
+win.callOnFlip(trialClock.reset)
 
-# Get the actual onset time of the sound in global time
-audio_onset_global = test_sound.getLastSoundStartTime()
-
-# Reset clock so that 0 = actual audio onset
-trialClock = core.Clock()
-trialClock.reset(-audio_onset_global)
-
-# Convert Excel times from ms to sec
+# Convert ms to sec
 trigger_times_sec = [
     float(trigger_item) / 1000.0,
     float(trigger_senonset) / 1000.0,
@@ -25,7 +21,7 @@ trigger_codes = [
     int(ID_2_F0),
 ]
 
-# Send triggers at specified times
+# Send triggers at correct times
 next_trigger_index = 0
 while next_trigger_index < len(trigger_times_sec):
     now = trialClock.getTime()
