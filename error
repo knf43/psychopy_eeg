@@ -1,16 +1,37 @@
-Check your playback timing or use the 'Stop' function properly!
-Trigger 101 sent at 0.000146 sec 
-Trigger 20 sent at 0.007074 sec 
-Trigger 21 sent at 0.013576 sec 
-Trigger 22 sent at 0.021752 sec 
-Trigger 23 sent at 0.029861 sec 
-Trigger 24 sent at 0.037224 sec 
+test_sound.play()
 
+# Get the actual onset time of the sound in global time
+audio_onset_global = test_sound.getLastSoundStartTime()
 
+# Reset clock so that 0 = actual audio onset
+trialClock = core.Clock()
+trialClock.reset(-audio_onset_global)
 
-Trigger 101 sent at 0.000005 sec 
-Trigger 30 sent at 0.006611 sec 
-Trigger 31 sent at 0.014453 sec 
-Trigger 32 sent at 0.021239 sec 
-Trigger 33 sent at 0.028208 sec 
-Trigger 34 sent at 0.036218 sec 
+# Convert Excel times from ms to sec
+trigger_times_sec = [
+    float(trigger_item) / 1000.0,
+    float(trigger_senonset) / 1000.0,
+    float(trigger_verbsonset) / 1000.0,
+    float(trigger_1_F0) / 1000.0,
+    float(trigger_suffix) / 1000.0,
+    float(trigger_2_F0) / 1000.0,
+]
+trigger_codes = [
+    int(ID_item),
+    int(ID_senonset),
+    int(ID_verbonset),
+    int(ID_1_F0),
+    int(ID_suffix),
+    int(ID_2_F0),
+]
+
+# Send triggers at specified times
+next_trigger_index = 0
+while next_trigger_index < len(trigger_times_sec):
+    now = trialClock.getTime()
+    if now >= trigger_times_sec[next_trigger_index]:
+        send_trigger(trigger_codes[next_trigger_index])
+        print(f"Trigger {trigger_codes[next_trigger_index]} sent at {now:.6f} sec")
+        next_trigger_index += 1
+    else:
+        core.wait(0.001)
