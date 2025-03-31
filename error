@@ -713,7 +713,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     if thisPractice != None:
         for paramName in thisPractice:
             globals()[paramName] = thisPractice[paramName]
-        #corrAns = button_mapping[corrAns]
     
     if thisSession is not None:
         # if running in a Session with a Liaison client, send data up to now
@@ -863,20 +862,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                     key_resp_2.keys = 'right'
                     key_resp_2.rt = response_clock.getTime()
                     continueRoutine = False 
-                
-                 # Determine correctness based on version
-                expected_key = None
-                if experiment_version == '1':
-                    expected_key = 'left' if corrAns == 'num_1' else 'right'
-                elif experiment_version == '2':
-                    expected_key = 'left' if corrAns == 'num_2' else 'right'
-
-                if key_resp_2.keys == expected_key:
-                    key_resp_2.corr = 1
-                else:
-                    key_resp_2.corr = 0
-            
-            # *fixationcross* updates
             
             # if fixationcross is starting this frame...
             if fixationcross.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
@@ -952,8 +937,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         test_sound.pause()  # ensure sound has stopped at end of Routine
         # check responses
         # Determine if response is correct using the correct_answer_map
-        expected_button = button_mapping.get(corrAns)
-        if key_resp_2.keys == expected_button:
+        if key_resp_2.keys == corrAns:
             key_resp_2.corr = 1
         else:
             key_resp_2.corr = 0
@@ -1367,6 +1351,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         if thisTrial != None:
             for paramName in thisTrial:
                 globals()[paramName] = thisTrial[paramName]
+            corrAns = button_mapping[thisTrial['corrAns']]
         
         # --- Prepare to start Routine "test" ---
         # create an object to store info about Routine test
