@@ -1,9 +1,24 @@
-trialClock = core.Clock()  # reset trialClock to zero before any timing
-test_sound.play()  # play audio
+trialClock = core.Clock()  # Reset clock right after sound starts
 
-trigger_delays = [ ... ]  # in ms
-trigger_codes = [ ... ]
+trigger_delays = [
+    float(trigger_item),
+    float(trigger_senonset),
+    float(trigger_verbsonset),
+    float(trigger_1_F0),
+    float(trigger_suffix),
+    float(trigger_2_F0),
+]
+trigger_codes = [
+    int(ID_item),
+    int(ID_senonset),
+    int(ID_verbonset),
+    int(ID_1_F0),
+    int(ID_suffix),
+    int(ID_2_F0),
+]
 
 for delay_ms, code in zip(trigger_delays, trigger_codes):
-    core.wait(delay_ms / 1000.0 - trialClock.getTime())
+    wait_time = delay_ms / 1000.0 - trialClock.getTime()
+    if wait_time > 0:
+        core.wait(wait_time)
     send_trigger(code)
