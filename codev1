@@ -1432,49 +1432,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
             # update/draw components on each frame
             
-            # *test_sound* updates
-            
-            # if test_sound is starting this frame...
-            if test_sound.status == NOT_STARTED and t >= 0.0-frameTolerance:
-                test_sound.frameNStart = frameN
-                test_sound.tStart = t
-                test_sound.tStartRefresh = tThisFlipGlobal
-                thisExp.addData('test_sound.started', t)
-
-                # Play sound and capture flip time as audio onset
-                test_sound.play()
-                audio_onset_global = win.getFutureFlipTime(clock='ptb')
-                win.callOnFlip(trialClock.reset)
-
-                # Convert ms to sec
-                trigger_times_sec = [
-                    float(trigger_item) / 1000.0,
-                    float(trigger_senonset) / 1000.0,
-                    float(trigger_verbsonset) / 1000.0,
-                    float(trigger_1_F0) / 1000.0,
-                    float(trigger_suffix) / 1000.0,
-                    float(trigger_2_F0) / 1000.0,
-                ]
-                trigger_codes = [
-                    int(ID_item),
-                    int(ID_senonset),
-                    int(ID_verbonset),
-                    int(ID_1_F0),
-                    int(ID_suffix),
-                    int(ID_2_F0),
-                ]
-
-                # Send triggers at correct times
-                for delay_ms, code in zip(trigger_delays, trigger_codes):
-                    delay_sec = delay_ms / 1000.0
-                    expected_ms = delay_ms  # keep original for printing
-                    wait_time = delay_sec - trialClock.getTime()
-                    if wait_time > 0:
-                        core.wait(wait_time)
-                    send_trigger(code)
-                    actual_ms = trialClock.getTime() * 1000
-                    print(f"Trigger {code} | Expected: {expected_ms:.1f} ms | Sent: {actual_ms:.1f} ms | Diff: {actual_ms - expected_ms:.1f} ms")
-            
             # if test_sound is stopping this frame...
             if test_sound.status == STARTED:
                 if bool(False) or test_sound.isFinished:
