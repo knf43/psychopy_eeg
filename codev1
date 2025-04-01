@@ -787,25 +787,24 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
             # update/draw components on each frame
             
-            # *test_sound* updates
             
             # if test_sound is starting this frame...
                 
-                # Initialize trialClock
-                trialClock = core.Clock()
-                trialClock.reset()
+            # Initialize trialClock
+            trialClock = core.Clock()
+            trialClock.reset()
 
-                # Get the relative timestamps for this trial
-                trigger_times = [
-                    trialClock.getTime() + float(trigger_item),
-                    trialClock.getTime() + float(trigger_senonset),
-                    trialClock.getTime() + float(trigger_verbsonset),
-                    trialClock.getTime() + float(trigger_1_F0),
-                    trialClock.getTime() + float(trigger_suffix),
-                    trialClock.getTime() + float(trigger_2_F0),
-                ]
-                trigger_codes = [1, 2, 3, 4, 5, 6]  # Adjust codes if needed
-                next_trigger_index = 0
+            # Get the relative timestamps for this trial
+            trigger_times = [
+                trialClock.getTime() + float(trigger_item),
+                trialClock.getTime() + float(trigger_senonset),
+                trialClock.getTime() + float(trigger_verbsonset),
+                trialClock.getTime() + float(trigger_1_F0),
+                trialClock.getTime() + float(trigger_suffix),
+                trialClock.getTime() + float(trigger_2_F0),
+            ]
+            trigger_codes = [1, 2, 3, 4, 5, 6]  # Adjust codes if needed
+            next_trigger_index = 0
             
             # if test_sound is stopping this frame...
             if test_sound.status == STARTED:
@@ -1123,11 +1122,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     t = 0
     _timeToFirstFrame = win.getFutureFlipTime(clock="now")
     frameN = -1
-    
-    trialClock = core.Clock()  # Initialize before loop
-    trigger_times = []
-    trigger_codes = []
-    next_trigger_index = 0
     
     # --- Run Routine "test_instructions_2" ---
     test_instructions_2.forceEnded = routineForceEnded = not continueRoutine
