@@ -1,21 +1,26 @@
-test_sound.play()
-win.callOnFlip(trialClock.reset)  # Start clock on flip
+from psychopy import visual, core
 
-# Prepare triggers
-trigger_times_sec = [
-    float(trigger_item) / 1000.0,
-    float(trigger_senonset) / 1000.0,
-    float(trigger_verbsonset) / 1000.0,
-    float(trigger_1_F0) / 1000.0,
-    float(trigger_suffix) / 1000.0,
-    float(trigger_2_F0) / 1000.0,
-]
-trigger_codes = [
-    int(ID_item),
-    int(ID_senonset),
-    int(ID_verbonset),
-    int(ID_1_F0),
-    int(ID_suffix),
-    int(ID_2_F0),
-]
-next_trigger_index = 0
+# Create a window (not fullscreen so you can close it easily)
+win = visual.Window(size=[800, 600], fullscr=False, color='black', units='pix')
+
+# Measure screen refresh rate
+frame_rate = win.getActualFrameRate()
+print(f"\nMeasured frame rate: {frame_rate:.2f} Hz")
+
+# Measure actual frame intervals
+frameClock = core.Clock()
+frame_intervals = []
+
+for frameN in range(120):  # about 2 seconds at 60 Hz
+    win.flip()
+    frame_intervals.append(frameClock.getTime())
+    frameClock.reset()
+
+win.close()
+
+# Calculate average interval and effective frame rate
+avg_interval = sum(frame_intervals) / len(frame_intervals)
+effective_hz = 1.0 / avg_interval if avg_interval > 0 else float('nan')
+
+print(f"Average frame interval: {avg_interval:.6f} seconds")
+print(f"Effective frame rate: {effective_hz:.2f} Hz")
