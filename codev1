@@ -1,11 +1,10 @@
-# ---------------- Begin Routine Code for One-Shot Trigger Sending ----------------
-# Create (or re-create) the trial clock to ensure precise timing
-trialClock = core.Clock()
+# ---------------- Insert One-Shot Trigger Code Here ----------------
+trialClock = core.Clock()  # Create a new clock for trigger timing
 
 # Start the sound once at the beginning of the trial
 test_sound.play()
 
-# Prepare trigger delays (in milliseconds from your Excel) and trigger codes
+# Prepare trigger delays (in ms from Excel) and trigger codes
 trigger_delays_ms = [
     float(trigger_item),
     float(trigger_senonset),
@@ -24,13 +23,13 @@ trigger_codes = [
     int(ID_2_F0)
 ]
 
-# Loop over each trigger: convert delay from ms to seconds, wait, then send trigger
+# Send each trigger once, converting ms to seconds and waiting until that moment
 for delay_ms, code in zip(trigger_delays_ms, trigger_codes):
-    delay_sec = delay_ms / 1000.0  # convert milliseconds to seconds
+    delay_sec = delay_ms / 1000.0  # convert ms to seconds
     wait_time = delay_sec - trialClock.getTime()
     if wait_time > 0:
         core.wait(wait_time)
     send_trigger(code)
-    actual_time_ms = trialClock.getTime() * 1000  # get current time in milliseconds
+    actual_time_ms = trialClock.getTime() * 1000  # log current time in ms
     print(f"Trigger {code} sent at {actual_time_ms:.1f} ms (expected {delay_ms:.1f} ms)")
-# ---------------- End of Begin Routine Code ----------------
+# ---------------- End One-Shot Trigger Code ----------------
