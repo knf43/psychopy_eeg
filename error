@@ -1,15 +1,9 @@
-for delay_sec, code in zip(trigger_times_sec, trigger_codes):
+for delay_ms, code in zip(trigger_delays, trigger_codes):
+    delay_sec = delay_ms / 1000.0
+    expected_ms = delay_ms  # keep original for printing
     wait_time = delay_sec - trialClock.getTime()
     if wait_time > 0:
         core.wait(wait_time)
-    
-    expected_ms = delay_sec * 1000
     send_trigger(code)
     actual_ms = trialClock.getTime() * 1000
-    deviation_ms = actual_ms - expected_ms
-
-    print(f"Trigger {code} | Expected: {expected_ms:.2f} ms | Actual: {actual_ms:.2f} ms | Δ = {deviation_ms:.2f} ms")
-
-    thisExp.addData(f'trigger_{code}_expected_ms', expected_ms)
-    thisExp.addData(f'trigger_{code}_actual_ms', actual_ms)
-    thisExp.addData(f'trigger_{code}_deviation_ms', deviation_ms)
+    print(f"Trigger {code} | Expected: {expected_ms:.1f} ms | Sent: {actual_ms:.1f} ms | Diff: {actual_ms - expected_ms:.1f} ms")
