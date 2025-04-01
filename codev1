@@ -968,11 +968,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         t = 0
         _timeToFirstFrame = win.getFutureFlipTime(clock="now")
         frameN = -1
-        
-        trialClock = core.Clock()  # Initialize before loop
-        trigger_times = []
-        trigger_codes = []
-        next_trigger_index = 0
+
         
         # --- Run Routine "takeabreak" ---
         # if trial has changed, end Routine now
