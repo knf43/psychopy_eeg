@@ -1,0 +1,16 @@
+# Initialize the serial port for the TriggerBox (COM3)
+try:
+    trigger_serial = serial.Serial('COM3')  # Default settings are fine
+    print("TriggerBox connected on COM3")
+except serial.SerialException as e:
+    print("Error: TriggerBox not connected. Triggers will not be sent.")
+    trigger_serial = None
+
+
+
+
+
+
+
+
+
