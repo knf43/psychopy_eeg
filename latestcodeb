@@ -1428,6 +1428,13 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             continueRoutine = False
         test.forceEnded = routineForceEnded = not continueRoutine
 
+        # Initialize key response and reset variables
+        key_resp_2.status = NOT_STARTED
+        key_resp_2.keys = []
+        key_resp_2.rt = []
+        waitOnFlip = False
+        response_clock = core.Clock()
+        
         # Prepare trialClock and trigger vars
         trialClock = core.Clock()
         trigger_times = []
