@@ -1,6 +1,7 @@
-# Initialize key response and reset variables
-key_resp_2.status = NOT_STARTED
-key_resp_2.keys = []
-key_resp_2.rt = []
-waitOnFlip = False
-response_clock = core.Clock()
+# Start collecting responses
+if key_resp_2.status == NOT_STARTED:
+    key_resp_2.frameNStart = frameN
+    key_resp_2.tStart = now
+    key_resp_2.status = STARTED
+    waitOnFlip = True
+    win.callOnFlip(key_resp_2.clock.reset)
