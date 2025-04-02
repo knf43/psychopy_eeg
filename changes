@@ -1,21 +1,8 @@
-import time
+# Play the sound and get the best estimate of audio onset (in seconds)
+t0 = test_sound.play()
 
-def send_trigger(trigger_code):
-    """
-    Sends a trigger via the TriggerBox using Brain Products’ official protocol.
-    """
-    if trigger_serial:
-        print(f"[DEBUG] Sending trigger {trigger_code}...")
+# Create and reset the trial clock
+trialClock = core.Clock()
+trialClock.reset()
 
-        # Step 1: Clear the line first (recommended by Brain Products)
-        trigger_serial.write(bytes([0x00]))
-        time.sleep(0.005)  # Optional small pre-clear wait
-
-        # Step 2: Send trigger
-        trigger_serial.write(bytes([trigger_code]))
-        time.sleep(0.010)  # Pulse width = 10 ms
-
-        # Step 3: Reset line to 0
-        trigger_serial.write(bytes([0x00]))
-
-        print(f"[DEBUG] Trigger {trigger_code} sent.")
+print(f"[DEBUG] test_sound.play() called — estimated audio onset: {t0*1000:.2f} ms")
