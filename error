@@ -1,9 +1,85 @@
- File "C:\Users\eegadmin\Desktop\Psychopy experiment Kaylee - Copy\LangExperimentstress_lastrun.py", line 762, in run
-    print(f"[DEBUG] test_sound.play() called — estimated audio onset: {t0 * 1000:.2f} ms")
-TypeError: unsupported operand type(s) for *: 'NoneType' and 'int'
-1.7985     WARNING     Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
-1.8579     WARNING     Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
-1.8580     WARNING     Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
-1.8581     WARNING     Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
-1.8581     WARNING     Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
-################ Experiment ended with exit code 1 [pid:13964] #################
+################ Experiment ended with exit code 0 [pid:17848] #################
+## Running: C:\Users\eegadmin\Desktop\Psychopy experiment Kaylee - Copy\LangExperimentstress_lastrun.py ##
+failed to import GLFW.
+TriggerBox connected on COM3
+Controller connected: Controller (Gamepad F310)
+[DEBUG] test_sound.play() called — no PTB onset time returned.
+[DEBUG] test_sound.play() called — no PTB onset time returned.
+[DEBUG] test_sound.play() called — no PTB onset time returned.
+[DEBUG] test_sound.play() called — no PTB onset time returned.
+[DEBUG] test_sound.play() called — no PTB onset time returned.
+[DEBUG] Sending trigger 101...
+[DEBUG] Trigger 101 sent.
+[DEBUG] Trigger 101 sent at 0.0 ms (expected 0.0 ms)
+[DEBUG] Sending trigger 30...
+[DEBUG] Trigger 30 sent.
+[DEBUG] Trigger 30 sent at 35.0 ms (expected 0.2 ms)
+[DEBUG] Sending trigger 31...
+[DEBUG] Trigger 31 sent.
+[DEBUG] Trigger 31 sent at 35.0 ms (expected 0.9 ms)
+[DEBUG] Sending trigger 32...
+[DEBUG] Trigger 32 sent.
+[DEBUG] Trigger 32 sent at 35.0 ms (expected 1.0 ms)
+[DEBUG] Sending trigger 33...
+[DEBUG] Trigger 33 sent.
+[DEBUG] Trigger 33 sent at 35.0 ms (expected 1.2 ms)
+[DEBUG] Sending trigger 34...
+[DEBUG] Trigger 34 sent.
+[DEBUG] Trigger 34 sent at 35.0 ms (expected 1.3 ms)
+[DEBUG] test_sound.play() called — no PTB onset time returned.
+[DEBUG] Sending trigger 101...
+[DEBUG] Trigger 101 sent.
+[DEBUG] Trigger 101 sent at 0.0 ms (expected 0.0 ms)
+[DEBUG] test_sound.play() called — no PTB onset time returned.
+[DEBUG] Sending trigger 101...
+[DEBUG] Trigger 101 sent.
+[DEBUG] Trigger 101 sent at 0.0 ms (expected 0.0 ms)
+[DEBUG] test_sound.play() called — no PTB onset time returned.
+[DEBUG] Sending trigger 101...
+[DEBUG] Trigger 101 sent.
+[DEBUG] Trigger 101 sent at 0.0 ms (expected 0.0 ms)
+[DEBUG] test_sound.play() called — no PTB onset time returned.
+[DEBUG] Sending trigger 101...
+[DEBUG] Trigger 101 sent.
+[DEBUG] Trigger 101 sent at 0.0 ms (expected 0.0 ms)
+[DEBUG] test_sound.play() called — no PTB onset time returned.
+[DEBUG] Sending trigger 101...
+[DEBUG] Trigger 101 sent.
+[DEBUG] Trigger 101 sent at 0.0 ms (expected 0.0 ms)
+[DEBUG] test_sound.play() called — no PTB onset time returned.
+[DEBUG] Sending trigger 101...
+[DEBUG] Trigger 101 sent.
+[DEBUG] Trigger 101 sent at 0.0 ms (expected 0.0 ms)
+[DEBUG] test_sound.play() called — no PTB onset time returned.
+[DEBUG] Sending trigger 101...
+[DEBUG] Trigger 101 sent.
+[DEBUG] Trigger 101 sent at 0.0 ms (expected 0.0 ms)
+[DEBUG] test_sound.play() called — no PTB onset time returned.
+[DEBUG] Sending trigger 101...
+[DEBUG] Trigger 101 sent.
+[DEBUG] Trigger 101 sent at 0.0 ms (expected 0.0 ms)
+[DEBUG] test_sound.play() called — no PTB onset time returned.
+[DEBUG] Sending trigger 101...
+[DEBUG] Trigger 101 sent.
+[DEBUG] Trigger 101 sent at 0.0 ms (expected 0.0 ms)
+[DEBUG] test_sound.play() called — no PTB onset time returned.
+[DEBUG] Sending trigger 101...
+[DEBUG] Trigger 101 sent.
+[DEBUG] Trigger 101 sent at 0.0 ms (expected 0.0 ms)
+[DEBUG] test_sound.play() called — no PTB onset time returned.
+[DEBUG] Sending trigger 101...
+[DEBUG] Trigger 101 sent.
+[DEBUG] Trigger 101 sent at 0.0 ms (expected 0.0 ms)
+[DEBUG] test_sound.play() called — no PTB onset time returned.
+[DEBUG] Sending trigger 101...
+[DEBUG] Trigger 101 sent.
+[DEBUG] Trigger 101 sent at 0.0 ms (expected 0.0 ms)
+[DEBUG] test_sound.play() called — no PTB onset time returned.
+[DEBUG] Sending trigger 101...
+[DEBUG] Trigger 101 sent.
+[DEBUG] Trigger 101 sent at 0.0 ms (expected 0.0 ms)
+[DEBUG] test_sound.play() called — no PTB onset time returned.
+[DEBUG] Sending trigger 101...
+[DEBUG] Trigger 101 sent.
+[DEBUG] Trigger 101 sent at 0.0 ms (expected 0.0 ms)
+[DEBUG] test_sound.play() called — no PTB onset time retu
