@@ -1,21 +1,9 @@
-# Set and play the audio
-test_sound.setSound(sounds, hamming=True)
-test_sound.setVolume(1, log=False)
-test_sound.seek(0)
-t0 = test_sound.play()  # PTB-estimated onset time
-trialClock = core.Clock()
-trialClock.reset()
-print(f"[DEBUG] test_sound.play() called — estimated audio onset: {t0 * 1000:.2f} ms")
+# Get current time in the trial
+now = trialClock.getTime()
 
-# Prepare triggers (converted to seconds)
-trigger_delays_sec = [float(trigger_item)/1000,
-                      float(trigger_senonset)/1000,
-                      float(trigger_verbsonset)/1000,
-                      float(trigger_1_F0)/1000,
-                      float(trigger_suffix)/1000,
-                      float(trigger_2_F0)/1000]
-
-trigger_codes = [int(ID_item), int(ID_senonset), int(ID_verbonset),
-                 int(ID_1_F0), int(ID_suffix), int(ID_2_F0)]
-
-trigger_sent = [False] * len(trigger_codes)
+# Send triggers at the correct times (one-shot per code)
+for i, (target_time, code) in enumerate(zip(trigger_delays_sec, trigger_codes)):
+    if not trigger_sent[i] and now >= target_time:
+        send_trigger(code)
+        print(f"[DEBUG] Trigger {code} sent at {now*1000:.1f} ms (expected {target_time*1000:.1f} ms)")
+        trigger_sent[i] = True
