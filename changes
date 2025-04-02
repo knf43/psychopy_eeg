@@ -1,16 +1,21 @@
-# Initialize the serial port for the TriggerBox (COM3)
-try:
-    trigger_serial = serial.Serial('COM3')  # Default settings are fine
-    print("TriggerBox connected on COM3")
-except serial.SerialException as e:
-    print("Error: TriggerBox not connected. Triggers will not be sent.")
-    trigger_serial = None
+import time
 
+def send_trigger(trigger_code):
+    """
+    Sends a trigger via the TriggerBox using Brain Products’ official protocol.
+    """
+    if trigger_serial:
+        print(f"[DEBUG] Sending trigger {trigger_code}...")
 
+        # Step 1: Clear the line first (recommended by Brain Products)
+        trigger_serial.write(bytes([0x00]))
+        time.sleep(0.005)  # Optional small pre-clear wait
 
+        # Step 2: Send trigger
+        trigger_serial.write(bytes([trigger_code]))
+        time.sleep(0.010)  # Pulse width = 10 ms
 
+        # Step 3: Reset line to 0
+        trigger_serial.write(bytes([0x00]))
 
-
-
-
-
+        print(f"[DEBUG] Trigger {trigger_code} sent.")
