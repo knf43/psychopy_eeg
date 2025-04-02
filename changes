@@ -1,59 +1,25 @@
-# --- Run Routine "test" (second time) ---
-test.forceEnded = routineForceEnded = False
-t = 0
-frameN = -1
-continueRoutine = True
-response_clock = core.Clock()
+for thisTrial in trials:
+    trigger_delays_sec = [
+        float(trigger_item)/1000,
+        float(trigger_senonset)/1000,
+        float(trigger_verbsonset)/1000,
+        float(trigger_1_F0)/1000,
+        float(trigger_suffix)/1000,
+        float(trigger_2_F0)/1000
+    ]
 
-# Reset clocks again for this loop
-trialClock = core.Clock()
-trialClock.reset()
+    trigger_codes = [
+        int(ID_item), 
+        int(ID_senonset), 
+        int(ID_verbonset),
+        int(ID_1_F0), 
+        int(ID_suffix), 
+        int(ID_2_F0)
+    ]
 
-while continueRoutine:
-    # Get time
-    t = routineTimer.getTime()
-    frameN += 1
-    now = trialClock.getTime()
+    trigger_sent = [False] * len(trigger_codes)
 
-    # --- Response checking ---
-    if key_resp_2.status == STARTED and not waitOnFlip:
-        buttons = joy.getAllButtons()
-        if buttons[4]:
-            key_resp_2.keys = 'left'
-            key_resp_2.rt = response_clock.getTime()
-            continueRoutine = False
-        elif buttons[5]:
-            key_resp_2.keys = 'right'
-            key_resp_2.rt = response_clock.getTime()
-            continueRoutine = False
-        if key_resp_2.keys is not None:
-            key_resp_2.corr = 1 if key_resp_2.keys == corrAns else 0
+    test.forceEnded = routineForceEnded = False  # <- This line should align exactly like above
 
-    # --- Trigger sending ---
-    for i, (target_time, code) in enumerate(zip(trigger_delays_sec, trigger_codes)):
-        if not trigger_sent[i] and now >= target_time:
-            send_trigger(code)
-            print(f"[DEBUG] Trigger {code} sent at {now * 1000:.1f} ms (expected {target_time * 1000:.1f} ms)")
-            trigger_sent[i] = True
-
-    # --- Fixation cross logic ---
-    if fixationcross.status == NOT_STARTED:
-        fixationcross.setAutoDraw(True)
-        fixationcross.status = STARTED
-
-    if fixationcross.status == STARTED and now >= 0.5:
-        fixationcross.setAutoDraw(False)
-        fixationcross.status = FINISHED
-
-    # --- Exit conditions ---
-    if defaultKeyboard.getKeys(keyList=["escape"]):
-        thisExp.status = FINISHED
-        continueRoutine = False
-
-    if not continueRoutine:
-        break
-
-    win.flip()
-
-# --- End of Routine "test" ---
-test_sound.stop()
+    t = 0
+    frameN = -1
