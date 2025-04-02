@@ -752,10 +752,35 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         test.status = NOT_STARTED
         continueRoutine = True
         # update component parameters for each repeat
+        # Set and play the audio
         test_sound.setSound(sounds, hamming=True)
         test_sound.setVolume(1, log=False)
         test_sound.seek(0)
-        test_sound.play()
+        t0 = test_sound.play()  # PTB-estimated onset time
+        trialClock = core.Clock()
+        trialClock.reset()
+        print(f"[DEBUG] test_sound.play() called — estimated audio onset: {t0 * 1000:.2f} ms")
+
+        # Prepare triggers (converted to seconds)
+        trigger_delays_sec = [
+            float(trigger_item)/1000,
+            float(trigger_senonset)/1000,
+            float(trigger_verbsonset)/1000,
+            float(trigger_1_F0)/1000,
+            float(trigger_suffix)/1000,
+            float(trigger_2_F0)/1000
+        ]
+
+        trigger_codes = [
+            int(ID_item), 
+            int(ID_senonset), 
+            int(ID_verbonset),
+            int(ID_1_F0), 
+            int(ID_suffix), 
+            int(ID_2_F0)
+        ]
+
+        trigger_sent = [False] * len(trigger_codes)
         # create starting attributes for key_resp_2
         key_resp_2.keys = []
         key_resp_2.rt = []
@@ -1351,50 +1376,38 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         test.status = NOT_STARTED
         continueRoutine = True
         # update component parameters for each repeat
+        # Set and play the audio
         test_sound.setSound(sounds, hamming=True)
         test_sound.setVolume(1, log=False)
         test_sound.seek(0)
-        test_sound.play()
+        t0 = test_sound.play()  # PTB-estimated onset time
+        trialClock = core.Clock()
+        trialClock.reset()
+        print(f"[DEBUG] test_sound.play() called — estimated audio onset: {t0 * 1000:.2f} ms")
+
+        # Prepare triggers (converted to seconds)
+        trigger_delays_sec = [float(trigger_item)/1000,
+            float(trigger_senonset)/1000,
+            float(trigger_verbsonset)/1000,
+            float(trigger_1_F0)/1000,
+            float(trigger_suffix)/1000,
+            float(trigger_2_F0)/1000
+        ]
+
+        trigger_codes = [
+            int(ID_item), 
+            int(ID_senonset), 
+            int(ID_verbonset),
+            int(ID_1_F0), 
+            int(ID_suffix), 
+            int(ID_2_F0)
+        ]
+
+        trigger_sent = [False] * len(trigger_codes)
         # create starting attributes for key_resp_2
         key_resp_2.keys = []
         key_resp_2.rt = []
         _key_resp_2_allKeys = []
-        
-        # ---------------- Insert One-Shot Trigger Code Here ----------------
-        trialClock = core.Clock()  # Create a new clock for trigger timing
-
-        # Start the sound once at the beginning of the trial
-        test_sound.play()
-
-        # Prepare trigger delays (in ms from Excel) and trigger codes
-        trigger_delays_ms = [
-            float(trigger_item),
-            float(trigger_senonset),
-            float(trigger_verbsonset),
-            float(trigger_1_F0),
-            float(trigger_suffix),
-            float(trigger_2_F0)
-        ]
-
-        trigger_codes = [
-            int(ID_item),
-            int(ID_senonset),
-            int(ID_verbonset),
-            int(ID_1_F0),
-            int(ID_suffix),
-            int(ID_2_F0)
-        ]
-
-        # Send each trigger once, converting ms to seconds and waiting until that moment
-        for delay_ms, code in zip(trigger_delays_ms, trigger_codes):
-            delay_sec = delay_ms / 1000.0  # convert ms to seconds
-            wait_time = delay_sec - trialClock.getTime()
-            if wait_time > 0:
-                core.wait(wait_time)
-            send_trigger(code)
-            actual_time_ms = trialClock.getTime() * 1000  # log current time in ms
-            print(f"Trigger {code} sent at {actual_time_ms:.1f} ms (expected {delay_ms:.1f} ms)")
-        # ---------------- End One-Shot Trigger Code ----------------
         
         # store start times for test
         test.tStartRefresh = win.getFutureFlipTime(clock=globalClock)
@@ -1851,7 +1864,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     
     # mark experiment as finished
     endExperiment(thisExp, win=win)
-
 
 def saveData(thisExp):
     """
