@@ -1,8 +1,21 @@
-# Play the sound and get the best estimate of audio onset (in seconds)
-t0 = test_sound.play()
-
-# Create and reset the trial clock
+# Set and play the audio
+test_sound.setSound(sounds, hamming=True)
+test_sound.setVolume(1, log=False)
+test_sound.seek(0)
+t0 = test_sound.play()  # PTB-estimated onset time
 trialClock = core.Clock()
 trialClock.reset()
+print(f"[DEBUG] test_sound.play() called — estimated audio onset: {t0 * 1000:.2f} ms")
 
-print(f"[DEBUG] test_sound.play() called — estimated audio onset: {t0*1000:.2f} ms")
+# Prepare triggers (converted to seconds)
+trigger_delays_sec = [float(trigger_item)/1000,
+                      float(trigger_senonset)/1000,
+                      float(trigger_verbsonset)/1000,
+                      float(trigger_1_F0)/1000,
+                      float(trigger_suffix)/1000,
+                      float(trigger_2_F0)/1000]
+
+trigger_codes = [int(ID_item), int(ID_senonset), int(ID_verbonset),
+                 int(ID_1_F0), int(ID_suffix), int(ID_2_F0)]
+
+trigger_sent = [False] * len(trigger_codes)
