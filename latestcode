@@ -30,6 +30,7 @@ from numpy import (sin, cos, tan, log, log10, pi, average,
 from numpy.random import random, randint, normal, shuffle, choice as randchoice
 import os  # handy system and path functions
 import sys  # to get file system encoding
+import time # used for sleep() in trigger timing 
 
 
 from psychopy.hardware import keyboard
@@ -38,7 +39,7 @@ import serial
 
 # Initialize the serial port for the TriggerBox (COM3)
 try:
-    trigger_serial = serial.Serial('COM3', baudrate=9600, timeout=0)
+    trigger_serial = serial.Serial('COM3')  # Default settings are fine
     print("TriggerBox connected on COM3")
 except serial.SerialException as e:
     print("Error: TriggerBox not connected. Triggers will not be sent.")
@@ -347,12 +348,23 @@ def pauseExperiment(thisExp, win=None, timers=[], playbackComponents=[]):
 # --- Trigger sending function ---
 def send_trigger(trigger_code):
     """
-    Sends a single trigger code through the serial port to the TriggerBox.
+    Sends a trigger via the TriggerBox using Brain Products’ official protocol.
     """
     if trigger_serial:
+        print(f"[DEBUG] Sending trigger {trigger_code}...")
+
+        # Step 1: Clear the line first (recommended by Brain Products)
+        trigger_serial.write(bytes([0x00]))
+        time.sleep(0.005)  # Optional small pre-clear wait
+
+        # Step 2: Send trigger
         trigger_serial.write(bytes([trigger_code]))
-        core.wait(0.0001) 
-        trigger_serial.write(bytes([0]))  # Reset to 0
+        time.sleep(0.010)  # Pulse width = 10 ms
+
+        # Step 3: Reset line to 0
+        trigger_serial.write(bytes([0x00]))
+
+        print(f"[DEBUG] Trigger {trigger_code} sent.")
 
 def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     """
