@@ -1400,66 +1400,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         ]
 
         trigger_sent = [False] * len(trigger_codes)
-
-        test.forceEnded = routineForceEnded = False  # <- This line should align exactly like above
-
-        t = 0
-        frameN = -1
-        continueRoutine = True
-        response_clock = core.Clock()
-
-        # Reset clocks again for this loop
-        trialClock = core.Clock()
-        trialClock.reset()
-
-        while continueRoutine:
-            # Get time
-            t = routineTimer.getTime()
-            frameN += 1
-            now = trialClock.getTime()
-
-            # --- Response checking ---
-            if key_resp_2.status == STARTED and not waitOnFlip:
-                buttons = joy.getAllButtons()
-                if buttons[4]:
-                    key_resp_2.keys = 'left'
-                    key_resp_2.rt = response_clock.getTime()
-                    continueRoutine = False
-                elif buttons[5]:
-                    key_resp_2.keys = 'right'
-                    key_resp_2.rt = response_clock.getTime()
-                    continueRoutine = False
-                if key_resp_2.keys is not None:
-                    key_resp_2.corr = 1 if key_resp_2.keys == corrAns else 0
-
-            # --- Trigger sending ---
-            for i, (target_time, code) in enumerate(zip(trigger_delays_sec, trigger_codes)):
-                if not trigger_sent[i] and now >= target_time:
-                    send_trigger(code)
-                    print(f"[DEBUG] Trigger {code} sent at {now * 1000:.1f} ms (expected {target_time * 1000:.1f} ms)")
-                    trigger_sent[i] = True
-
-            # --- Fixation cross logic ---
-            if fixationcross.status == NOT_STARTED:
-                fixationcross.setAutoDraw(True)
-                fixationcross.status = STARTED
-
-            if fixationcross.status == STARTED and now >= 0.5:
-                fixationcross.setAutoDraw(False)
-                fixationcross.status = FINISHED
-
-            # --- Exit conditions ---
-            if defaultKeyboard.getKeys(keyList=["escape"]):
-                thisExp.status = FINISHED
-                continueRoutine = False
-
-            if not continueRoutine:
-                break
-
-            win.flip()
-
-        # --- End of Routine "test" ---
-        test_sound.stop()
         
 def saveData(thisExp):
     """
