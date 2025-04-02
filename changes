@@ -1,25 +1,5 @@
-for thisTrial in trials:
-    trigger_delays_sec = [
-        float(trigger_item)/1000,
-        float(trigger_senonset)/1000,
-        float(trigger_verbsonset)/1000,
-        float(trigger_1_F0)/1000,
-        float(trigger_suffix)/1000,
-        float(trigger_2_F0)/1000
-    ]
-
-    trigger_codes = [
-        int(ID_item), 
-        int(ID_senonset), 
-        int(ID_verbonset),
-        int(ID_1_F0), 
-        int(ID_suffix), 
-        int(ID_2_F0)
-    ]
-
-    trigger_sent = [False] * len(trigger_codes)
-
-    test.forceEnded = routineForceEnded = False  # <- This line should align exactly like above
-
-    t = 0
-    frameN = -1
+t0 = test_sound.play()
+if t0 is not None:
+    print(f"[DEBUG] test_sound.play() called — estimated audio onset: {t0 * 1000:.2f} ms")
+else:
+    print("[DEBUG] test_sound.play() called — no PTB onset time returned.")
