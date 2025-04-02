@@ -794,6 +794,12 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         test.status = STARTED
         thisExp.addData('test.started', test.tStart)
         test.maxDuration = None
+        
+        key_resp_2.status = STARTED
+        key_resp_2.keys = []
+        key_resp_2.rt = []
+        win.callOnFlip(key_resp_2.clock.reset)
+        
         # keep track of which components have finished
         testComponents = test.components
         for thisComponent in test.components:
