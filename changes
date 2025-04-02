@@ -1,5 +1,17 @@
-t0 = test_sound.play()
-if t0 is not None:
-    print(f"[DEBUG] test_sound.play() called — estimated audio onset: {t0 * 1000:.2f} ms")
-else:
-    print("[DEBUG] test_sound.play() called — no PTB onset time returned.")
+trigger_delays_sec = [
+    float(thisTrial['trigger_item']) / 1000,
+    float(thisTrial['trigger_senonset']) / 1000,
+    float(thisTrial['trigger_verbsonset']) / 1000,
+    float(thisTrial['trigger_1_F0']) / 1000,
+    float(thisTrial['trigger_suffix']) / 1000,
+    float(thisTrial['trigger_2_F0']) / 1000
+]
+
+trigger_codes = [
+    int(thisTrial['ID_item']),
+    int(thisTrial['ID_senonset']),
+    int(thisTrial['ID_verbonset']),
+    int(thisTrial['ID_1_F0']),
+    int(thisTrial['ID_suffix']),
+    int(thisTrial['ID_2_F0'])
+]
