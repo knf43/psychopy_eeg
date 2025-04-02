@@ -885,6 +885,16 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                     key_resp_2.rt = response_clock.getTime()
                     continueRoutine = False 
             
+            # Get current time in the trial
+            now = trialClock.getTime()
+
+            # Send triggers at the correct times (one-shot per code)
+            for i, (target_time, code) in enumerate(zip(trigger_delays_sec, trigger_codes)):
+                if not trigger_sent[i] and now >= target_time:
+                send_trigger(code)
+                print(f"[DEBUG] Trigger {code} sent at {now*1000:.1f} ms (expected {target_time*1000:.1f} ms)")
+                trigger_sent[i] = True
+                
             # if fixationcross is starting this frame...
             if fixationcross.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
                 # keep track of start time/frame for later
