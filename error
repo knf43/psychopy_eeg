@@ -41,3 +41,22 @@ Traceback (most recent call last):
   File "C:\Program Files\PsychoPy\lib\site-packages\psychopy\data\trial.py", line 1005, in __eq__
     del self_copy._rng, other_copy._rng
 AttributeError: _rng
+## Running: C:\Users\eegadmin\Desktop\Psychopy experiment Kaylee - Copy\LangExperimentstress_lastrun.py ##
+failed to import GLFW.
+Serial read error: ClearCommError failed (PermissionError(13, 'A device attached to the system is not functioning.', None, 31))
+Controller connected: Controller (Gamepad F310)
+Traceback (most recent call last):
+11.3031     WARNING     launchHubServer: If using the iohub mouse or eyetracker devices, fullScr should be True.
+  File "C:\Users\eegadmin\Desktop\Psychopy experiment Kaylee - Copy\LangExperimentstress_lastrun.py", line 1529, in <module>
+    run(
+  File "C:\Users\eegadmin\Desktop\Psychopy experiment Kaylee - Copy\LangExperimentstress_lastrun.py", line 590, in run
+    if defaultKeyboard.getKeys(keyList=["escape"]):
+  File "C:\Program Files\PsychoPy\lib\site-packages\psychopy\hardware\keyboard.py", line 494, in getKeys
+    self.dispatchMessages()
+  File "C:\Program Files\PsychoPy\lib\site-packages\psychopy\hardware\keyboard.py", line 607, in dispatchMessages
+    key_events = KeyboardDevice._iohubKeyboard.getKeys(clear=True)
+  File "C:\Program Files\PsychoPy\lib\site-packages\psychopy\iohub\client\keyboard.py", line 329, in getKeys
+    self._syncDeviceState()
+  File "C:\Program Files\PsychoPy\lib\site-packages\psychopy\iohub\client\keyboard.py", line 232, in _syncDeviceState
+    events = {int(k): v for k, v in list(kb_state.get('events').items())}
+AttributeError: 'str' object has no attribute 'get'
