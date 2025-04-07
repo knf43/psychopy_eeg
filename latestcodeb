@@ -59,7 +59,7 @@ thread = threading.Thread(target=ReadThread, args=(port,))
 thread.start()
 
 def send_trigger(trigger_val):
-    val = int(trigger_val)
+    val = int(round(trigger_val))
     port.write([val])
     time.sleep(PulseWidth)
     port.write([0x00])
@@ -354,7 +354,7 @@ def pauseExperiment(thisExp, win=None, timers=[], playbackComponents=[]):
         defaultKeyboard = deviceManager.addKeyboard(
             deviceClass='keyboard',
             deviceName='defaultKeyboard',
-            backend='ioHub',
+            backend='psychopy',
         )
     # run a while loop while we wait to unpause
     while thisExp.status == PAUSED:
@@ -474,6 +474,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     if globalClock is None:
         # create a clock if not given one
         globalClock = core.Clock()
+    response_clock = core.Clock()
     if isinstance(globalClock, str):
         # if given a string, make a clock accoridng to it
         if globalClock == 'float':
@@ -578,13 +579,14 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             # keyboard checking is just starting
             waitOnFlip = True
             win.callOnFlip(key_resp.clock.reset)  # t=0 on next screen flip
-            win.callOnFlip(key_resp.clearEvents, eventType='keyboard')  # clear events on next screen flip
+            win.callOnFlip(response_clock.reset)
         if key_resp.status == STARTED:
-            buttons = joy.getAllButtons()
-            if buttons[1]:  # B button to continue
-                key_resp.keys = 'b'
-                key_resp.rt = globalClock.getTime()
-                continueRoutine = False
+            if 'joy' in globals():
+                buttons = joy.getAllButtons()
+                if len(buttons) > 1 and buttons[1]:  # B button to continue
+                    key_resp.keys = 'b'
+                    key_resp.rt = globalClock.getTime()
+                    continueRoutine = False
         
         # check for quit (typically the Esc key)
         if defaultKeyboard.getKeys(keyList=["escape"]):
@@ -756,6 +758,8 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         frameN = -1
 
         test.forceEnded = routineForceEnded = not continueRoutine
+        
+        sent_triggers = set
         while continueRoutine:
             t = routineTimer.getTime()
             tThisFlip = win.getFutureFlipTime(clock=routineTimer)
@@ -786,6 +790,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                 thisExp.timestampOnFlip(win, 'key_resp_2.started')
                 key_resp_2.status = STARTED
                 win.callOnFlip(key_resp_2.clock.reset)
+                win.callOnFlip(response_clock.reset)
 
             if key_resp_2.status == STARTED:
                 buttons = joy.getAllButtons()
@@ -933,11 +938,12 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             win.callOnFlip(key_resp.clearEvents, eventType='keyboard')
 
         if key_resp.status == STARTED:
-            buttons = joy.getAllButtons()
-            if buttons[1]:  # B button to continue
-                key_resp.keys = 'b'
-                key_resp.rt = globalClock.getTime()
-                continueRoutine = False
+            if 'joy' in globals():
+                buttons = joy.getAllButtons()
+                if len(buttons) > 1 and buttons[1]:  # B button to continue
+                    key_resp.keys = 'b'
+                    key_resp.rt = globalClock.getTime()
+                    continueRoutine = False
 
         if defaultKeyboard.getKeys(keyList=["escape"]):
             thisExp.status = FINISHED
@@ -1001,6 +1007,8 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     if isinstance(trials, data.TrialHandler2) and thisTrial.thisN != trials.thisTrial.thisN:
         continueRoutine = False
     test.forceEnded = routineForceEnded = not continueRoutine
+    
+    sent_triggers = set()
     while continueRoutine:
         # get current time
         t = routineTimer.getTime()
@@ -1053,6 +1061,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             # keyboard checking is just starting
             waitOnFlip = True
             win.callOnFlip(key_resp_2.clock.reset)  # t=0 on next screen flip:
+            win.callOnFlip(response_clock.reset)
         if key_resp_2.status == STARTED:
             buttons = joy.getAllButtons()
             if buttons[4]:  # LB = left
@@ -1200,6 +1209,8 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         if isinstance(trials, data.TrialHandler2) and thisTrial.thisN != trials.thisTrial.thisN:
             continueRoutine = False
         takeabreak.forceEnded = routineForceEnded = not continueRoutine
+        
+        sent_triggers = set()
         while continueRoutine:
             # get current time
             t = routineTimer.getTime()
@@ -1245,13 +1256,14 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                 # keyboard checking is just starting
                 waitOnFlip = True
                 win.callOnFlip(key_resp_4.clock.reset)  # t=0 on next screen flip
-                win.callOnFlip(key_resp_4.clearEvents, eventType='keyboard')  # clear events on next screen flip
+                win.callOnFlip(response_clock.reset)
             if key_resp.status == STARTED:
-                buttons = joy.getAllButtons()
-                if buttons[1]:  # B button to continue
-                    key_resp.keys = 'b'
-                    key_resp.rt = globalClock.getTime()
-                    continueRoutine = False
+                if 'joy' in globals():
+                    buttons = joy.getAllButtons()
+                    if len(buttons) > 1 and buttons[1]:  # B button to continue
+                        key_resp.keys = 'b'
+                        key_resp.rt = globalClock.getTime()
+                        continueRoutine = False
 
             # check for quit (typically the Esc key)
             if defaultKeyboard.getKeys(keyList=["escape"]):
