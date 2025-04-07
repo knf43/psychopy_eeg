@@ -59,7 +59,8 @@ thread = threading.Thread(target=ReadThread, args=(port,))
 thread.start()
 
 def send_trigger(trigger_val):
-    port.write([trigger_val])
+    val = int(trigger_val)
+    port.write([val])
     time.sleep(PulseWidth)
     port.write([0x00])
 
@@ -811,7 +812,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             trigger_schedule = [
                 (ID_item, trigger_item),
                 (ID_senonset, trigger_senonset),
-                (ID_verbsonset, trigger_verbsonset),
+                (ID_verbonset, trigger_verbsonset),
                 (ID_1_F0, trigger_1_F0),
                 (ID_suffix, trigger_suffix),
                 (ID_2_F0, trigger_2_F0)
@@ -1089,7 +1090,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         trigger_schedule = [
             (ID_item, trigger_item),
             (ID_senonset, trigger_senonset),
-            (ID_verbsonset, trigger_verbsonset),
+            (ID_verbonset, trigger_verbsonset),
             (ID_1_F0, trigger_1_F0),
             (ID_suffix, trigger_suffix),
             (ID_2_F0, trigger_2_F0)
@@ -1519,7 +1520,7 @@ if __name__ == '__main__':
     joystick.backend = 'pyglet'
     nJoysticks = joystick.getNumJoysticks()
     if nJoysticks > 0:
-        joy = joystick.Joystick(0)  # Use the first connected joystick
+        globals()['joy'] = joystick.Joystick(0)
         print("Controller connected:", joy.getName())
     else:
         raise RuntimeError("No joystick/gamepad detected!")
