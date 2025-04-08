@@ -1,65 +1,49 @@
-import pandas as pd
-import random
+# Send all 6 triggers safely as 1-byte integers
 
-# Load the full trials file
-df = pd.read_excel('conditions_stress.xlsx')
-
-# Add helper columns if missing
-if 'file_name' not in df.columns:
-    df['file_name'] = df['sounds'].apply(lambda x: x.split("/")[-1])
-    df['item_id'] = df['file_name'].apply(lambda x: x[:2])
-    df['cond'] = df['file_name'].apply(lambda x: x[2])
-
-# Determine participant-based rotation (1–8)
 try:
-    pnum = int(expInfo['participant'])
-except:
-    pnum = 1
+    if ID_item is not None:
+        serialPort_item_2.write(bytes([int(ID_item)]))
+        core.wait(0.005)
+        serialPort_item_2.write(bytes([0]))
+except Exception as e:
+    print(f"Error sending ID_item: {e}")
 
-rotation = (pnum - 1) % 8
-condition_orders = [
-    ['a', 'b', 'c', 'd'],
-    ['b', 'c', 'd', 'a'],
-    ['c', 'd', 'a', 'b'],
-    ['d', 'a', 'b', 'c'],
-    ['a', 'c', 'b', 'd'],
-    ['b', 'd', 'a', 'c'],
-    ['c', 'a', 'd', 'b'],
-    ['d', 'b', 'c', 'a'],
-]
-order = condition_orders[rotation]
+try:
+    if ID_senonset is not None:
+        serialPort_senonset_2.write(bytes([int(ID_senonset)]))
+        core.wait(0.005)
+        serialPort_senonset_2.write(bytes([0]))
+except Exception as e:
+    print(f"Error sending ID_senonset: {e}")
 
-# Select one row per item_id per condition
-unique = (
-    df.groupby(['cond', 'item_id'], group_keys=False)
-      .apply(lambda x: x.sample(1))
-      .reset_index(drop=True)
-)
+try:
+    if ID_verbonset is not None:
+        serialPort_verbonset_2.write(bytes([int(ID_verbonset)]))
+        core.wait(0.005)
+        serialPort_verbonset_2.write(bytes([0]))
+except Exception as e:
+    print(f"Error sending ID_verbonset: {e}")
 
-# Collect 10 trials per condition (no repeated item_ids)
-used_ids = set()
-selected = []
+try:
+    if ID_1_F0 is not None:
+        serialPort_1_F0_2.write(bytes([int(ID_1_F0)]))
+        core.wait(0.005)
+        serialPort_1_F0_2.write(bytes([0]))
+except Exception as e:
+    print(f"Error sending ID_1_F0: {e}")
 
-for cond in order:
-    cond_df = unique[(unique['cond'] == cond) & (~unique['item_id'].isin(used_ids))]
-    if len(cond_df) < 10:
-        raise ValueError(f"Not enough unique items for condition '{cond}'")
-    sample = cond_df.sample(10, random_state=rotation)
-    used_ids.update(sample['item_id'].tolist())
-    selected.append(sample)
+try:
+    if ID_suffix is not None:
+        serialPort_suffix_2.write(bytes([int(ID_suffix)]))
+        core.wait(0.005)
+        serialPort_suffix_2.write(bytes([0]))
+except Exception as e:
+    print(f"Error sending ID_suffix: {e}")
 
-# Combine and shuffle
-final = pd.concat(selected).sample(frac=1, random_state=rotation).reset_index(drop=True)
-
-# Ensure ID_* columns are valid integers
-id_cols = [col for col in final.columns if col.startswith("ID_")]
-for col in id_cols:
-    final[col] = pd.to_numeric(final[col], errors='coerce').fillna(0).astype(int)
-
-# Ensure trigger_* and ms_* columns are floats (in seconds)
-trigger_cols = [col for col in final.columns if col.startswith("trigger_") or col.startswith("ms_")]
-for col in trigger_cols:
-    final[col] = pd.to_numeric(final[col], errors='coerce').fillna(0).astype(float)
-
-# Save to CSV for PsychoPy loop
-final.to_csv('selected_trials.csv', index=False)
+try:
+    if ID_2_F0 is not None:
+        serialPort_2_F0_2.write(bytes([int(ID_2_F0)]))
+        core.wait(0.005)
+        serialPort_2_F0_2.write(bytes([0]))
+except Exception as e:
+    print(f"Error sending ID_2_F0: {e}")
