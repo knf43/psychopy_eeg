@@ -1,47 +1,39 @@
-Generating PsychoPy script...
+import pandas as pd
 
-## Running: C:\Users\eegadmin\Desktop\4_8\4_8\Psychopy experiment\LangExperimentstress_lastrun.py ##
-1483.9495     EXP     Imported selected_practice.csv as conditions, 3 conditions, 26 params
-1483.9689     EXP     Imported selected_trials.csv as conditions, 40 conditions, 26 params
-1483.9690     WARNING     duplicate variable names: trigger_senonset, corrAns, trigger_suffix, ID_verbonset, ms_1_F0, ms_2_F0, trigger_item, ms_senonset, present_past, trigger_verbsonset, ID_senonset, ID_2_F0, suffix, syll, ID_1_F0, cond, ms_suffix, item_id, ms_verbonset, stress_unstress, trigger_1_F0, sounds, ID_suffix, trigger_2_F0, file_name, ID_item
-1483.9857     INFO     Loaded monitor calibration from ['2025_03_24 10:43']
-1484.0470     EXP     Imported selected_practice.csv as conditions, 3 conditions, 26 params
-1484.0595     EXP     Imported selected_trials.csv as conditions, 40 conditions, 26 params
-1484.0596     WARNING     duplicate variable names: trigger_senonset, corrAns, trigger_suffix, ID_verbonset, ms_1_F0, ms_2_F0, trigger_item, ms_senonset, present_past, trigger_verbsonset, ID_senonset, ID_2_F0, suffix, syll, ID_1_F0, cond, ms_suffix, item_id, ms_verbonset, stress_unstress, trigger_1_F0, sounds, ID_suffix, trigger_2_F0, file_name, ID_item
-1484.0714     INFO     Loaded monitor calibration from ['2025_03_24 10:43']
-1484.1860     EXP     Imported selected_practice.csv as conditions, 3 conditions, 26 params
-1484.1975     EXP     Imported selected_trials.csv as conditions, 40 conditions, 26 params
-1484.1977     WARNING     duplicate variable names: trigger_senonset, corrAns, trigger_suffix, ID_verbonset, ms_1_F0, ms_2_F0, trigger_item, ms_senonset, present_past, trigger_verbsonset, ID_senonset, ID_2_F0, suffix, syll, ID_1_F0, cond, ms_suffix, item_id, ms_verbonset, stress_unstress, trigger_1_F0, sounds, ID_suffix, trigger_2_F0, file_name, ID_item
-6.9418     WARNING     launchHubServer: If using the iohub mouse or eyetracker devices, fullScr should be True.
-C:\Users\eegadmin\Desktop\4_8\4_8\Psychopy experiment\LangExperimentstress_lastrun.py:433: DeprecationWarning: DataFrameGroupBy.apply operated on the grouping columns. This behavior is deprecated, and in a future version of pandas the grouping columns will be excluded from the operation. Either pass `include_groups=False` to exclude the groupings or explicitly select the grouping columns after groupby to silence this warning.
-  .apply(lambda x: x.sample(1))
-C:\Users\eegadmin\Desktop\4_8\4_8\Psychopy experiment\LangExperimentstress_lastrun.py:433: DeprecationWarning: DataFrameGroupBy.apply operated on the grouping columns. This behavior is deprecated, and in a future version of pandas the grouping columns will be excluded from the operation. Either pass `include_groups=False` to exclude the groupings or explicitly select the grouping columns after groupby to silence this warning.
-  .apply(lambda x: x.sample(1))
-C:\Users\eegadmin\Desktop\4_8\4_8\Psychopy experiment\LangExperimentstress_lastrun.py:433: DeprecationWarning: DataFrameGroupBy.apply operated on the grouping columns. This behavior is deprecated, and in a future version of pandas the grouping columns will be excluded from the operation. Either pass `include_groups=False` to exclude the groupings or explicitly select the grouping columns after groupby to silence this warning.
-  .apply(lambda x: x.sample(1))
-C:\Users\eegadmin\Desktop\4_8\4_8\Psychopy experiment\LangExperimentstress_lastrun.py:433: DeprecationWarning: DataFrameGroupBy.apply operated on the grouping columns. This behavior is deprecated, and in a future version of pandas the grouping columns will be excluded from the operation. Either pass `include_groups=False` to exclude the groupings or explicitly select the grouping columns after groupby to silence this warning.
-  .apply(lambda x: x.sample(1))
-C:\Users\eegadmin\Desktop\4_8\4_8\Psychopy experiment\LangExperimentstress_lastrun.py:506: DeprecationWarning: DataFrameGroupBy.apply operated on the grouping columns. This behavior is deprecated, and in a future version of pandas the grouping columns will be excluded from the operation. Either pass `include_groups=False` to exclude the groupings or explicitly select the grouping columns after groupby to silence this warning.
-  .apply(lambda x: x.sample(1))
-Traceback (most recent call last):
-  File "C:\Users\eegadmin\Desktop\4_8\4_8\Psychopy experiment\LangExperimentstress_lastrun.py", line 2007, in <module>
-    run(
-  File "C:\Users\eegadmin\Desktop\4_8\4_8\Psychopy experiment\LangExperimentstress_lastrun.py", line 513, in run
-    .apply(lambda x: x.sample(10))
-  File "C:\Program Files\PsychoPy\lib\site-packages\pandas\core\groupby\groupby.py", line 1824, in apply
-    result = self._python_apply_general(f, self._selected_obj)
-  File "C:\Program Files\PsychoPy\lib\site-packages\pandas\core\groupby\groupby.py", line 1885, in _python_apply_general
-    values, mutated = self._grouper.apply_groupwise(f, data, self.axis)
-  File "C:\Program Files\PsychoPy\lib\site-packages\pandas\core\groupby\ops.py", line 919, in apply_groupwise
-    res = f(group)
-  File "C:\Users\eegadmin\Desktop\4_8\4_8\Psychopy experiment\LangExperimentstress_lastrun.py", line 513, in <lambda>
-    .apply(lambda x: x.sample(10))
-  File "C:\Program Files\PsychoPy\lib\site-packages\pandas\core\generic.py", line 6118, in sample
-    sampled_indices = sample.sample(obj_len, size, replace, weights, rs)
-  File "C:\Program Files\PsychoPy\lib\site-packages\pandas\core\sample.py", line 152, in sample
-    return random_state.choice(obj_len, size=size, replace=replace, p=weights).astype(
-  File "numpy\\random\\mtrand.pyx", line 1001, in numpy.random.mtrand.RandomState.choice
-ValueError: Cannot take a larger sample than population when 'replace=False'
-2.6897     WARNING     Monitor specification not found. Creating a temporary one...
-ioHub Server Process Completed With Code:  0
-################ Experiment ended with exit code 1 [pid:20056] #################
+# Load file
+experiment_trials = pd.read_excel('conditions_stress.xlsx')
+
+# Create columns if needed
+if 'item_id' not in experiment_trials.columns:
+    experiment_trials['file_name'] = experiment_trials['sounds'].apply(lambda x: x.split("/")[-1])
+    experiment_trials['item_id'] = experiment_trials['file_name'].apply(lambda x: x[:2])
+    experiment_trials['cond'] = experiment_trials['file_name'].apply(lambda x: x[2])
+
+# Define how many you want per condition
+n_items_per_cond = 10
+conditions = ['a', 'b', 'c', 'd']
+selected_list = []
+
+# Loop through each condition and do safe sampling
+for cond in conditions:
+    cond_df = experiment_trials[experiment_trials['cond'] == cond]
+
+    # Get unique item_id entries only
+    cond_unique = (
+        cond_df
+        .groupby('item_id', group_keys=False)
+        .apply(lambda x: x.sample(1))
+        .reset_index(drop=True)
+    )
+
+    if len(cond_unique) < n_items_per_cond:
+        raise ValueError(f"Not enough unique items for condition '{cond}': found {len(cond_unique)}, need {n_items_per_cond}.")
+
+    selected = cond_unique.sample(n=n_items_per_cond)
+    selected_list.append(selected)
+
+# Combine and shuffle
+selected_trials = pd.concat(selected_list).sample(frac=1).reset_index(drop=True)
+
+# Save to file
+selected_trials.to_csv('selected_trials.csv', index=False)
