@@ -1,214 +1,41 @@
-Generating PsychoPy script...
+import pandas as pd
 
-## Running: C:\Users\eegadmin\Desktop\4_8\4_8\Psychopy experiment\LangExperimentstress_lastrun.py ##
-1553.5690     EXP     Imported selected_practice.csv as conditions, 4 conditions, 27 params
-1553.7318     EXP     Imported selected_trials.csv as conditions, 40 conditions, 26 params
-1553.7320     WARNING     duplicate variable names: trigger_item, trigger_2_F0, ms_2_F0, ms_suffix, file_name, stress_unstress, present_past, ID_2_F0, ID_verbonset, cond, ID_suffix, ms_verbonset, sounds, suffix, trigger_verbsonset, ms_1_F0, trigger_1_F0, corrAns, ID_1_F0, ID_item, trigger_senonset, ID_senonset, trigger_suffix, syll, ms_senonset
-1553.7437     INFO     Loaded monitor calibration from ['2025_03_24 10:43']
-1553.7769     EXP     Imported selected_practice.csv as conditions, 4 conditions, 27 params
-1553.7881     EXP     Imported selected_trials.csv as conditions, 40 conditions, 26 params
-1553.7883     WARNING     duplicate variable names: trigger_item, trigger_2_F0, ms_2_F0, ms_suffix, file_name, stress_unstress, present_past, ID_2_F0, ID_verbonset, cond, ID_suffix, ms_verbonset, sounds, suffix, trigger_verbsonset, ms_1_F0, trigger_1_F0, corrAns, ID_1_F0, ID_item, trigger_senonset, ID_senonset, trigger_suffix, syll, ms_senonset
-1553.7943     INFO     Loaded monitor calibration from ['2025_03_24 10:43']
-1553.8539     EXP     Imported selected_practice.csv as conditions, 4 conditions, 27 params
-1553.8651     EXP     Imported selected_trials.csv as conditions, 40 conditions, 26 params
-1553.8652     WARNING     duplicate variable names: trigger_item, trigger_2_F0, ms_2_F0, ms_suffix, file_name, stress_unstress, present_past, ID_2_F0, ID_verbonset, cond, ID_suffix, ms_verbonset, sounds, suffix, trigger_verbsonset, ms_1_F0, trigger_1_F0, corrAns, ID_1_F0, ID_item, trigger_senonset, ID_senonset, trigger_suffix, syll, ms_senonset
-7.9767     WARNING     launchHubServer: If using the iohub mouse or eyetracker devices, fullScr should be True.
-C:\Users\eegadmin\Desktop\4_8\4_8\Psychopy experiment\LangExperimentstress_lastrun.py:566: DeprecationWarning: DataFrameGroupBy.apply operated on the grouping columns. This behavior is deprecated, and in a future version of pandas the grouping columns will be excluded from the operation. Either pass `include_groups=False` to exclude the groupings or explicitly select the grouping columns after groupby to silence this warning.
-  .apply(lambda x: x.sample(1))
-Traceback (most recent call last):
-  File "C:\Users\eegadmin\Desktop\4_8\4_8\Psychopy experiment\LangExperimentstress_lastrun.py", line 2493, in <module>
-    run(
-  File "C:\Users\eegadmin\Desktop\4_8\4_8\Psychopy experiment\LangExperimentstress_lastrun.py", line 1086, in run
-    serialPort_item_2.write(bytes(ID_item, 'utf8'))
-TypeError: encoding without a string argument
-2.3862     WARNING     Monitor specification not found. Creating a temporary one...
-ioHub Server Process Completed With Code:  0
-################ Experiment ended with exit code 1 [pid:17256] #################
-Alert 4705: Column name 'sounds' in conditions file already exists as a variable in this experiment (user).
-For more info see https://docs.psychopy.org/alerts/4705.htmlAlert 4705: Column name 'syll' in conditions file already exists as a variable in this experiment (user).
-For more info see https://docs.psychopy.org/alerts/4705.htmlAlert 4705: Column name 'stress_unstress' in conditions file already exists as a variable in this experiment (user).
-For more info see https://docs.psychopy.org/alerts/4705.htmlAlert 4705: Column name 'suffix' in conditions file already exists as a variable in this experiment (user).
-For more info see https://docs.psychopy.org/alerts/4705.htmlAlert 4705: Column name 'present_past' in conditions file already exists as a variable in this experiment (user).
-For more info see https://docs.psychopy.org/alerts/4705.htmlAlert 4705: Column name 'corrAns' in conditions file already exists as a variable in this experiment (user).
-For more info see https://docs.psychopy.org/alerts/4705.htmlAlert 4705: Column name 'trigger_item' in conditions file already exists as a variable in this experiment (user).
-For more info see https://docs.psychopy.org/alerts/4705.htmlAlert 4705: Column name 'trigger_senonset' in conditions file already exists as a variable in this experiment (user).
-For more info see https://docs.psychopy.org/alerts/4705.htmlAlert 4705: Column name 'trigger_verbsonset' in conditions file already exists as a variable in this experiment (user).
-For more info see https://docs.psychopy.org/alerts/4705.htmlAlert 4705: Column name 'trigger_1_F0' in conditions file already exists as a variable in this experiment (user).
-For more info see https://docs.psychopy.org/alerts/4705.htmlAlert 4705: Column name 'trigger_suffix' in conditions file already exists as a variable in this experiment (user).
-For more info see https://docs.psychopy.org/alerts/4705.htmlAlert 4705: Column name 'trigger_2_F0' in conditions file already exists as a variable in this experiment (user).
-For more info see https://docs.psychopy.org/alerts/4705.htmlAlert 4705: Column name 'ID_item' in conditions file already exists as a variable in this experiment (user).
-For more info see https://docs.psychopy.org/alerts/4705.htmlAlert 4705: Column name 'ID_senonset' in conditions file already exists as a variable in this experiment (user).
-For more info see https://docs.psychopy.org/alerts/4705.htmlAlert 4705: Column name 'ID_verbonset' in conditions file already exists as a variable in this experiment (user).
-For more info see https://docs.psychopy.org/alerts/4705.htmlAlert 4705: Column name 'ID_1_F0' in conditions file already exists as a variable in this experiment (user).
-For more info see https://docs.psychopy.org/alerts/4705.htmlAlert 4705: Column name 'ID_suffix' in conditions file already exists as a variable in this experiment (user).
-For more info see https://docs.psychopy.org/alerts/4705.htmlAlert 4705: Column name 'ID_2_F0' in conditions file already exists as a variable in this experiment (user).
-For more info see https://docs.psychopy.org/alerts/4705.htmlAlert 4705: Column name 'ms_senonset' in conditions file already exists as a variable in this experiment (user).
-For more info see https://docs.psychopy.org/alerts/4705.htmlAlert 4705: Column name 'ms_verbonset' in conditions file already exists as a variable in this experiment (user).
-For more info see https://docs.psychopy.org/alerts/4705.htmlAlert 4705: Column name 'ms_1_F0' in conditions file already exists as a variable in this experiment (user).
-For more info see https://docs.psychopy.org/alerts/4705.htmlAlert 4705: Column name 'ms_suffix' in conditions file already exists as a variable in this experiment (user).
-For more info see https://docs.psychopy.org/alerts/4705.htmlAlert 4705: Column name 'ms_2_F0' in conditions file already exists as a variable in this experiment (user).
-For more info see https://docs.psychopy.org/alerts/4705.htmlAlert 4705: Column name 'file_name' in conditions file already exists as a variable in this experiment (user).
-For more info see https://docs.psychopy.org/alerts/4705.htmlAlert 4705: Column name 'cond' in conditions file already exists as a variable in this experiment (user).
-For more info see https://docs.psychopy.org/alerts/4705.html1696.9136     EXP     Imported C:\Users\eegadmin\Desktop\4_8\4_8\Psychopy experiment\selected_practice.csv as conditions, 4 conditions, 27 params
-1696.9530     INFO     Assuming reloading file: same filename and duplicate condition names in file: selected_practice.csv
-Alert 4705: Column name 'sounds' in conditions file already exists as a variable in this experiment (user).
-For more info see https://docs.psychopy.org/alerts/4705.htmlAlert 4705: Column name 'syll' in conditions file already exists as a variable in this experiment (user).
-For more info see https://docs.psychopy.org/alerts/4705.htmlAlert 4705: Column name 'stress_unstress' in conditions file already exists as a variable in this experiment (user).
-For more info see https://docs.psychopy.org/alerts/4705.htmlAlert 4705: Column name 'suffix' in conditions file already exists as a variable in this experiment (user).
-For more info see https://docs.psychopy.org/alerts/4705.htmlAlert 4705: Column name 'present_past' in conditions file already exists as a variable in this experiment (user).
-For more info see https://docs.psychopy.org/alerts/4705.htmlAlert 4705: Column name 'corrAns' in conditions file already exists as a variable in this experiment (user).
-For more info see https://docs.psychopy.org/alerts/4705.htmlAlert 4705: Column name 'trigger_item' in conditions file already exists as a variable in this experiment (user).
-For more info see https://docs.psychopy.org/alerts/4705.htmlAlert 4705: Column name 'trigger_senonset' in conditions file already exists as a variable in this experiment (user).
-For more info see https://docs.psychopy.org/alerts/4705.htmlAlert 4705: Column name 'trigger_verbsonset' in conditions file already exists as a variable in this experiment (user).
-For more info see https://docs.psychopy.org/alerts/4705.htmlAlert 4705: Column name 'trigger_1_F0' in conditions file already exists as a variable in this experiment (user).
-For more info see https://docs.psychopy.org/alerts/4705.htmlAlert 4705: Column name 'trigger_suffix' in conditions file already exists as a variable in this experiment (user).
-For more info see https://docs.psychopy.org/alerts/4705.htmlAlert 4705: Column name 'trigger_2_F0' in conditions file already exists as a variable in this experiment (user).
-For more info see https://docs.psychopy.org/alerts/4705.htmlAlert 4705: Column name 'ID_item' in conditions file already exists as a variable in this experiment (user).
-For more info see https://docs.psychopy.org/alerts/4705.htmlAlert 4705: Column name 'ID_senonset' in conditions file already exists as a variable in this experiment (user).
-For more info see https://docs.psychopy.org/alerts/4705.htmlAlert 4705: Column name 'ID_verbonset' in conditions file already exists as a variable in this experiment (user).
-For more info see https://docs.psychopy.org/alerts/4705.htmlAlert 4705: Column name 'ID_1_F0' in conditions file already exists as a variable in this experiment (user).
-For more info see https://docs.psychopy.org/alerts/4705.htmlAlert 4705: Column name 'ID_suffix' in conditions file already exists as a variable in this experiment (user).
-For more info see https://docs.psychopy.org/alerts/4705.htmlAlert 4705: Column name 'ID_2_F0' in conditions file already exists as a variable in this experiment (user).
-For more info see https://docs.psychopy.org/alerts/4705.htmlAlert 4705: Column name 'ms_senonset' in conditions file already exists as a variable in this experiment (user).
-For more info see https://docs.psychopy.org/alerts/4705.htmlAlert 4705: Column name 'ms_verbonset' in conditions file already exists as a variable in this experiment (user).
-For more info see https://docs.psychopy.org/alerts/4705.htmlAlert 4705: Column name 'ms_1_F0' in conditions file already exists as a variable in this experiment (user).
-For more info see https://docs.psychopy.org/alerts/4705.htmlAlert 4705: Column name 'ms_suffix' in conditions file already exists as a variable in this experiment (user).
-For more info see https://docs.psychopy.org/alerts/4705.htmlAlert 4705: Column name 'ms_2_F0' in conditions file already exists as a variable in this experiment (user).
-For more info see https://docs.psychopy.org/alerts/4705.htmlAlert 4705: Column name 'file_name' in conditions file already exists as a variable in this experiment (user).
-For more info see https://docs.psychopy.org/alerts/4705.htmlAlert 4705: Column name 'sentence' in conditions file already exists as a variable in this experiment (user).
-For more info see https://docs.psychopy.org/alerts/4705.htmlAlert 4705: Column name 'cond' in conditions file already exists as a variable in this experiment (user).
-For more info see https://docs.psychopy.org/alerts/4705.htmlAlert 4705: Column name 'combo' in conditions file already exists as a variable in this experiment (user).
-For more info see https://docs.psychopy.org/alerts/4705.htmlAlert 4705: Column name 'sounds' in conditions file already exists as a variable in this experiment (user).
-For more info see https://docs.psychopy.org/alerts/4705.htmlAlert 4705: Column name 'syll' in conditions file already exists as a variable in this experiment (user).
-For more info see https://docs.psychopy.org/alerts/4705.htmlAlert 4705: Column name 'stress_unstress' in conditions file already exists as a variable in this experiment (user).
-For more info see https://docs.psychopy.org/alerts/4705.htmlAlert 4705: Column name 'suffix' in conditions file already exists as a variable in this experiment (user).
-For more info see https://docs.psychopy.org/alerts/4705.htmlAlert 4705: Column name 'present_past' in conditions file already exists as a variable in this experiment (user).
-For more info see https://docs.psychopy.org/alerts/4705.htmlAlert 4705: Column name 'corrAns' in conditions file already exists as a variable in this experiment (user).
-For more info see https://docs.psychopy.org/alerts/4705.htmlAlert 4705: Column name 'trigger_item' in conditions file already exists as a variable in this experiment (user).
-For more info see https://docs.psychopy.org/alerts/4705.htmlAlert 4705: Column name 'trigger_senonset' in conditions file already exists as a variable in this experiment (user).
-For more info see https://docs.psychopy.org/alerts/4705.htmlAlert 4705: Column name 'trigger_verbsonset' in conditions file already exists as a variable in this experiment (user).
-For more info see https://docs.psychopy.org/alerts/4705.htmlAlert 4705: Column name 'trigger_1_F0' in conditions file already exists as a variable in this experiment (user).
-For more info see https://docs.psychopy.org/alerts/4705.htmlAlert 4705: Column name 'trigger_suffix' in conditions file already exists as a variable in this experiment (user).
-For more info see https://docs.psychopy.org/alerts/4705.htmlAlert 4705: Column name 'trigger_2_F0' in conditions file already exists as a variable in this experiment (user).
-For more info see https://docs.psychopy.org/alerts/4705.htmlAlert 4705: Column name 'ID_item' in conditions file already exists as a variable in this experiment (user).
-For more info see https://docs.psychopy.org/alerts/4705.htmlAlert 4705: Column name 'ID_senonset' in conditions file already exists as a variable in this experiment (user).
-For more info see https://docs.psychopy.org/alerts/4705.htmlAlert 4705: Column name 'ID_verbonset' in conditions file already exists as a variable in this experiment (user).
-For more info see https://docs.psychopy.org/alerts/4705.htmlAlert 4705: Column name 'ID_1_F0' in conditions file already exists as a variable in this experiment (user).
-For more info see https://docs.psychopy.org/alerts/4705.htmlAlert 4705: Column name 'ID_suffix' in conditions file already exists as a variable in this experiment (user).
-For more info see https://docs.psychopy.org/alerts/4705.htmlAlert 4705: Column name 'ID_2_F0' in conditions file already exists as a variable in this experiment (user).
-For more info see https://docs.psychopy.org/alerts/4705.htmlAlert 4705: Column name 'ms_senonset' in conditions file already exists as a variable in this experiment (user).
-For more info see https://docs.psychopy.org/alerts/4705.htmlAlert 4705: Column name 'ms_verbonset' in conditions file already exists as a variable in this experiment (user).
-For more info see https://docs.psychopy.org/alerts/4705.htmlAlert 4705: Column name 'ms_1_F0' in conditions file already exists as a variable in this experiment (user).
-For more info see https://docs.psychopy.org/alerts/4705.htmlAlert 4705: Column name 'ms_suffix' in conditions file already exists as a variable in this experiment (user).
-For more info see https://docs.psychopy.org/alerts/4705.htmlAlert 4705: Column name 'ms_2_F0' in conditions file already exists as a variable in this experiment (user).
-For more info see https://docs.psychopy.org/alerts/4705.htmlAlert 4705: Column name 'file_name' in conditions file already exists as a variable in this experiment (user).
-For more info see https://docs.psychopy.org/alerts/4705.htmlAlert 4705: Column name 'sentence' in conditions file already exists as a variable in this experiment (user).
-For more info see https://docs.psychopy.org/alerts/4705.htmlAlert 4705: Column name 'cond' in conditions file already exists as a variable in this experiment (user).
-For more info see https://docs.psychopy.org/alerts/4705.htmlAlert 4705: Column name 'combo' in conditions file already exists as a variable in this experiment (user).
-For more info see https://docs.psychopy.org/alerts/4705.html1704.7916     EXP     Imported C:\Users\eegadmin\Desktop\4_8\4_8\Psychopy experiment\selected_practice.csv as conditions, 4 conditions, 27 params
-1704.8352     INFO     Assuming reloading file: same filename and duplicate condition names in file: selected_practice.csv
-Generating PsychoPy script...
+# Load your full practice file
+df = pd.read_excel('conditions_stress_practice.xlsx')
 
-## Running: C:\Users\eegadmin\Desktop\4_8\4_8\Psychopy experiment\LangExperimentstress_lastrun.py ##
-2444.2566     EXP     Imported selected_practice.csv as conditions, 4 conditions, 27 params
-2444.2772     EXP     Imported selected_trials.csv as conditions, 40 conditions, 26 params
-2444.2775     WARNING     duplicate variable names: trigger_item, trigger_2_F0, ms_2_F0, ms_suffix, file_name, stress_unstress, present_past, ID_2_F0, ID_verbonset, cond, ID_suffix, ms_verbonset, sounds, suffix, trigger_verbsonset, ms_1_F0, trigger_1_F0, corrAns, ID_1_F0, ID_item, trigger_senonset, ID_senonset, trigger_suffix, syll, ms_senonset
-2444.3057     INFO     Loaded monitor calibration from ['2025_03_24 10:43']
-2444.4961     EXP     Imported selected_practice.csv as conditions, 4 conditions, 27 params
-2444.5072     EXP     Imported selected_trials.csv as conditions, 40 conditions, 26 params
-2444.5074     WARNING     duplicate variable names: trigger_item, trigger_2_F0, ms_2_F0, ms_suffix, file_name, stress_unstress, present_past, ID_2_F0, ID_verbonset, cond, ID_suffix, ms_verbonset, sounds, suffix, trigger_verbsonset, ms_1_F0, trigger_1_F0, corrAns, ID_1_F0, ID_item, trigger_senonset, ID_senonset, trigger_suffix, syll, ms_senonset
-2444.5147     INFO     Loaded monitor calibration from ['2025_03_24 10:43']
-2444.5567     EXP     Imported selected_practice.csv as conditions, 4 conditions, 27 params
-2444.5676     EXP     Imported selected_trials.csv as conditions, 40 conditions, 26 params
-2444.5678     WARNING     duplicate variable names: trigger_item, trigger_2_F0, ms_2_F0, ms_suffix, file_name, stress_unstress, present_past, ID_2_F0, ID_verbonset, cond, ID_suffix, ms_verbonset, sounds, suffix, trigger_verbsonset, ms_1_F0, trigger_1_F0, corrAns, ID_1_F0, ID_item, trigger_senonset, ID_senonset, trigger_suffix, syll, ms_senonset
-22.1107     WARNING     launchHubServer: If using the iohub mouse or eyetracker devices, fullScr should be True.
-C:\Users\eegadmin\Desktop\4_8\4_8\Psychopy experiment\LangExperimentstress_lastrun.py:574: DeprecationWarning: DataFrameGroupBy.apply operated on the grouping columns. This behavior is deprecated, and in a future version of pandas the grouping columns will be excluded from the operation. Either pass `include_groups=False` to exclude the groupings or explicitly select the grouping columns after groupby to silence this warning.
-  .apply(lambda x: x.sample(1))
-Traceback (most recent call last):
-  File "C:\Users\eegadmin\Desktop\4_8\4_8\Psychopy experiment\LangExperimentstress_lastrun.py", line 2509, in <module>
-    run(
-  File "C:\Users\eegadmin\Desktop\4_8\4_8\Psychopy experiment\LangExperimentstress_lastrun.py", line 1102, in run
-    serialPort_item_2.write(bytes(ID_item, 'utf8'))
-TypeError: encoding without a string argument
-2.5925     WARNING     Monitor specification not found. Creating a temporary one...
-ioHub Server Process Completed With Code:  0
-################# Experiment ended with exit code 1 [pid:2068] #################
-Alert 4705: Column name 'sounds' in conditions file already exists as a variable in this experiment (user).
-For more info see https://docs.psychopy.org/alerts/4705.htmlAlert 4705: Column name 'syll' in conditions file already exists as a variable in this experiment (user).
-For more info see https://docs.psychopy.org/alerts/4705.htmlAlert 4705: Column name 'stress_unstress' in conditions file already exists as a variable in this experiment (user).
-For more info see https://docs.psychopy.org/alerts/4705.htmlAlert 4705: Column name 'suffix' in conditions file already exists as a variable in this experiment (user).
-For more info see https://docs.psychopy.org/alerts/4705.htmlAlert 4705: Column name 'present_past' in conditions file already exists as a variable in this experiment (user).
-For more info see https://docs.psychopy.org/alerts/4705.htmlAlert 4705: Column name 'corrAns' in conditions file already exists as a variable in this experiment (user).
-For more info see https://docs.psychopy.org/alerts/4705.htmlAlert 4705: Column name 'trigger_item' in conditions file already exists as a variable in this experiment (user).
-For more info see https://docs.psychopy.org/alerts/4705.htmlAlert 4705: Column name 'trigger_senonset' in conditions file already exists as a variable in this experiment (user).
-For more info see https://docs.psychopy.org/alerts/4705.htmlAlert 4705: Column name 'trigger_verbsonset' in conditions file already exists as a variable in this experiment (user).
-For more info see https://docs.psychopy.org/alerts/4705.htmlAlert 4705: Column name 'trigger_1_F0' in conditions file already exists as a variable in this experiment (user).
-For more info see https://docs.psychopy.org/alerts/4705.htmlAlert 4705: Column name 'trigger_suffix' in conditions file already exists as a variable in this experiment (user).
-For more info see https://docs.psychopy.org/alerts/4705.htmlAlert 4705: Column name 'trigger_2_F0' in conditions file already exists as a variable in this experiment (user).
-For more info see https://docs.psychopy.org/alerts/4705.htmlAlert 4705: Column name 'ID_item' in conditions file already exists as a variable in this experiment (user).
-For more info see https://docs.psychopy.org/alerts/4705.htmlAlert 4705: Column name 'ID_senonset' in conditions file already exists as a variable in this experiment (user).
-For more info see https://docs.psychopy.org/alerts/4705.htmlAlert 4705: Column name 'ID_verbonset' in conditions file already exists as a variable in this experiment (user).
-For more info see https://docs.psychopy.org/alerts/4705.htmlAlert 4705: Column name 'ID_1_F0' in conditions file already exists as a variable in this experiment (user).
-For more info see https://docs.psychopy.org/alerts/4705.htmlAlert 4705: Column name 'ID_suffix' in conditions file already exists as a variable in this experiment (user).
-For more info see https://docs.psychopy.org/alerts/4705.htmlAlert 4705: Column name 'ID_2_F0' in conditions file already exists as a variable in this experiment (user).
-For more info see https://docs.psychopy.org/alerts/4705.htmlAlert 4705: Column name 'ms_senonset' in conditions file already exists as a variable in this experiment (user).
-For more info see https://docs.psychopy.org/alerts/4705.htmlAlert 4705: Column name 'ms_verbonset' in conditions file already exists as a variable in this experiment (user).
-For more info see https://docs.psychopy.org/alerts/4705.htmlAlert 4705: Column name 'ms_1_F0' in conditions file already exists as a variable in this experiment (user).
-For more info see https://docs.psychopy.org/alerts/4705.htmlAlert 4705: Column name 'ms_suffix' in conditions file already exists as a variable in this experiment (user).
-For more info see https://docs.psychopy.org/alerts/4705.htmlAlert 4705: Column name 'ms_2_F0' in conditions file already exists as a variable in this experiment (user).
-For more info see https://docs.psychopy.org/alerts/4705.htmlAlert 4705: Column name 'file_name' in conditions file already exists as a variable in this experiment (user).
-For more info see https://docs.psychopy.org/alerts/4705.htmlAlert 4705: Column name 'sentence' in conditions file already exists as a variable in this experiment (user).
-For more info see https://docs.psychopy.org/alerts/4705.htmlAlert 4705: Column name 'cond' in conditions file already exists as a variable in this experiment (user).
-For more info see https://docs.psychopy.org/alerts/4705.htmlAlert 4705: Column name 'combo' in conditions file already exists as a variable in this experiment (user).
-For more info see https://docs.psychopy.org/alerts/4705.htmlGenerating PsychoPy script...
+# Add helper columns if needed
+if 'file_name' not in df.columns:
+    df['file_name'] = df['sounds'].apply(lambda x: x.split("/")[-1])
 
-## Running: C:\Users\eegadmin\Desktop\4_8\4_8\Psychopy experiment\LangExperimentstress_lastrun.py ##
-3334.0085     EXP     Imported selected_practice.csv as conditions, 4 conditions, 27 params
-3334.0284     EXP     Imported selected_trials.csv as conditions, 40 conditions, 26 params
-3334.0285     WARNING     duplicate variable names: trigger_item, trigger_2_F0, ms_2_F0, ms_suffix, file_name, stress_unstress, present_past, ID_2_F0, ID_verbonset, cond, ID_suffix, ms_verbonset, sounds, suffix, trigger_verbsonset, ms_1_F0, trigger_1_F0, corrAns, ID_1_F0, ID_item, trigger_senonset, ID_senonset, trigger_suffix, syll, ms_senonset
-3334.0585     INFO     Loaded monitor calibration from ['2025_03_24 10:43']
-3334.1355     EXP     Imported selected_practice.csv as conditions, 4 conditions, 27 params
-3334.1473     EXP     Imported selected_trials.csv as conditions, 40 conditions, 26 params
-3334.1475     WARNING     duplicate variable names: trigger_item, trigger_2_F0, ms_2_F0, ms_suffix, file_name, stress_unstress, present_past, ID_2_F0, ID_verbonset, cond, ID_suffix, ms_verbonset, sounds, suffix, trigger_verbsonset, ms_1_F0, trigger_1_F0, corrAns, ID_1_F0, ID_item, trigger_senonset, ID_senonset, trigger_suffix, syll, ms_senonset
-3334.1544     INFO     Loaded monitor calibration from ['2025_03_24 10:43']
-3334.1977     EXP     Imported selected_practice.csv as conditions, 4 conditions, 27 params
-3334.2095     EXP     Imported selected_trials.csv as conditions, 40 conditions, 26 params
-3334.2097     WARNING     duplicate variable names: trigger_item, trigger_2_F0, ms_2_F0, ms_suffix, file_name, stress_unstress, present_past, ID_2_F0, ID_verbonset, cond, ID_suffix, ms_verbonset, sounds, suffix, trigger_verbsonset, ms_1_F0, trigger_1_F0, corrAns, ID_1_F0, ID_item, trigger_senonset, ID_senonset, trigger_suffix, syll, ms_senonset
-12.8277     WARNING     launchHubServer: If using the iohub mouse or eyetracker devices, fullScr should be True.
-C:\Users\eegadmin\Desktop\4_8\4_8\Psychopy experiment\LangExperimentstress_lastrun.py:578: DeprecationWarning: DataFrameGroupBy.apply operated on the grouping columns. This behavior is deprecated, and in a future version of pandas the grouping columns will be excluded from the operation. Either pass `include_groups=False` to exclude the groupings or explicitly select the grouping columns after groupby to silence this warning.
-  .apply(lambda x: x.sample(1))
-Traceback (most recent call last):
-  File "C:\Users\eegadmin\Desktop\4_8\4_8\Psychopy experiment\LangExperimentstress_lastrun.py", line 2517, in <module>
-    run(
-  File "C:\Users\eegadmin\Desktop\4_8\4_8\Psychopy experiment\LangExperimentstress_lastrun.py", line 1110, in run
-    serialPort_item_2.write(bytes(ID_item, 'utf8'))
-TypeError: encoding without a string argument
-2.5017     WARNING     Monitor specification not found. Creating a temporary one...
-ioHub Server Process Completed With Code:  0
-################ Experiment ended with exit code 1 [pid:13996] #################
-Generating PsychoPy script...
+# Extract sentence ID and condition from filenames like "p1a_saltar.wav"
+df['sentence'] = df['file_name'].apply(lambda x: x[:2])   # e.g., 'p1'
+df['cond'] = df['file_name'].apply(lambda x: x[2])        # e.g., 'a'
 
-## Running: C:\Users\eegadmin\Desktop\4_8\4_8\Psychopy experiment\LangExperimentstress_lastrun.py ##
-3743.2494     EXP     Imported selected_practice.csv as conditions, 4 conditions, 27 params
-3743.2800     EXP     Imported selected_trials.csv as conditions, 40 conditions, 26 params
-3743.2802     WARNING     duplicate variable names: trigger_item, trigger_2_F0, ms_2_F0, ms_suffix, file_name, stress_unstress, present_past, ID_2_F0, ID_verbonset, cond, ID_suffix, ms_verbonset, sounds, suffix, trigger_verbsonset, ms_1_F0, trigger_1_F0, corrAns, ID_1_F0, ID_item, trigger_senonset, ID_senonset, trigger_suffix, syll, ms_senonset
-3743.3218     INFO     Loaded monitor calibration from ['2025_03_24 10:43']
-3743.3501     EXP     Imported selected_practice.csv as conditions, 4 conditions, 27 params
-3743.3618     EXP     Imported selected_trials.csv as conditions, 40 conditions, 26 params
-3743.3619     WARNING     duplicate variable names: trigger_item, trigger_2_F0, ms_2_F0, ms_suffix, file_name, stress_unstress, present_past, ID_2_F0, ID_verbonset, cond, ID_suffix, ms_verbonset, sounds, suffix, trigger_verbsonset, ms_1_F0, trigger_1_F0, corrAns, ID_1_F0, ID_item, trigger_senonset, ID_senonset, trigger_suffix, syll, ms_senonset
-3743.3674     INFO     Loaded monitor calibration from ['2025_03_24 10:43']
-3743.4182     EXP     Imported selected_practice.csv as conditions, 4 conditions, 27 params
-3743.4288     EXP     Imported selected_trials.csv as conditions, 40 conditions, 26 params
-3743.4290     WARNING     duplicate variable names: trigger_item, trigger_2_F0, ms_2_F0, ms_suffix, file_name, stress_unstress, present_past, ID_2_F0, ID_verbonset, cond, ID_suffix, ms_verbonset, sounds, suffix, trigger_verbsonset, ms_1_F0, trigger_1_F0, corrAns, ID_1_F0, ID_item, trigger_senonset, ID_senonset, trigger_suffix, syll, ms_senonset
-7.5228     WARNING     launchHubServer: If using the iohub mouse or eyetracker devices, fullScr should be True.
-C:\Users\eegadmin\Desktop\4_8\4_8\Psychopy experiment\LangExperimentstress_lastrun.py:579: DeprecationWarning: DataFrameGroupBy.apply operated on the grouping columns. This behavior is deprecated, and in a future version of pandas the grouping columns will be excluded from the operation. Either pass `include_groups=False` to exclude the groupings or explicitly select the grouping columns after groupby to silence this warning.
-  .apply(lambda x: x.sample(1))
-Traceback (most recent call last):
-  File "C:\Users\eegadmin\Desktop\4_8\4_8\Psychopy experiment\LangExperimentstress_lastrun.py", line 2519, in <module>
-    run(
-  File "C:\Users\eegadmin\Desktop\4_8\4_8\Psychopy experiment\LangExperimentstress_lastrun.py", line 1112, in run
-    serialPort_item_2.write(bytes(ID_item, 'utf8'))
-TypeError: encoding without a string argument
-2.3838     WARNING     Monitor specification not found. Creating a temporary one...
-ioHub Server Process Completed With Code:  0
-################# Experiment ended with exit code 1 [pid:1648] #################
+# Define the exact 4 practice trials to select
+target_combos = ['p1a', 'p2b', 'p3c', 'p4d']
+df['combo'] = df['sentence'] + df['cond']
+
+# Select only those rows
+selected_practice = df[df['combo'].isin(target_combos)].reset_index(drop=True)
+
+# Error if anything is missing
+if selected_practice.shape[0] != 4:
+    raise ValueError("One or more of p1a, p2b, p3c, p4d is missing in conditions_stress_practice.xlsx")
+
+# Cast ID_* columns to int
+id_cols = [col for col in selected_practice.columns if col.startswith("ID_")]
+for col in id_cols:
+    selected_practice[col] = selected_practice[col].fillna(0).astype(int)
+
+# Cast trigger_* and ms_* columns to float (in ms)
+trigger_cols = [col for col in selected_practice.columns if col.startswith("trigger_") or col.startswith("ms_")]
+for col in trigger_cols:
+    selected_practice[col] = selected_practice[col].fillna(0).astype(float)
+
+# Cast all ID_* columns to string to prevent PsychoPy write() crash
+id_cols = [col for col in selected_practice.columns if col.startswith("ID_")]
+for col in id_cols:
+    selected_practice[col] = selected_practice[col].astype(str).fillna("")
+    
+# Save full set of columns for the loop
+selected_practice.to_csv('selected_practice.csv', index=False)
