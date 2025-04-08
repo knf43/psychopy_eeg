@@ -1,8 +1,10 @@
 from psychopy.hardware import joystick
 from psychopy import core
 
+# Set the backend to 'pygame'
+joystick.backend = 'pygame'
+
 # Initialize joystick
-joystick.backend = 'pyglet'  # or 'pygame' if pyglet doesn't work
 nJoysticks = joystick.getNumJoysticks()
 if nJoysticks < 1:
     print("No joystick detected.")
@@ -11,46 +13,27 @@ if nJoysticks < 1:
 joy = joystick.Joystick(0)
 print("Joystick connected:", joy.getName())
 
-prevButtonState = joy.getButton(1)  # Check button index 1 (change this if needed)
-
-print("Press button 1 (maybe B button on F310)...")
-
-# Start loop
-while True:
-    currentButtonState = joy.getButton(1)
-
-    if currentButtonState != prevButtonState:
-        prevButtonState = currentButtonState
-
-        if currentButtonState:  # Button just got pressed
-            print("🎮 Button 1 pressed!")
-
-    core.wait(0.05)
-
-
-from psychopy.hardware import joystick
-from psychopy import core
-
-joystick.backend = 'pyglet'
-joy = joystick.Joystick(0)
-
-print("Press LB or RB...")
-
+# Track previous state to detect new presses
 prevLB = joy.getButton(4)
 prevRB = joy.getButton(5)
 
+print("Press LB or RB...")
+
+# Run until you quit manually
 while True:
     lb = joy.getButton(4)
     rb = joy.getButton(5)
 
+    # Check for LB press
     if lb != prevLB:
         prevLB = lb
         if lb:
             print("👈 LB pressed")
 
+    # Check for RB press
     if rb != prevRB:
         prevRB = rb
         if rb:
             print("👉 RB pressed")
 
-    core.wait(0.05)
+    core.wait(0.01)  # fast refresh for responsiveness
