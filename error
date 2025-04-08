@@ -1,61 +1,19 @@
-25.5152     EXP     Imported selected_practice.csv as conditions, 4 conditions, 26 params
-25.5267     EXP     Imported selected_trials.csv as conditions, 40 conditions, 26 params
-25.5269     WARNING     duplicate variable names: ID_senonset, ms_2_F0, trigger_suffix, stress_unstress, ID_verbonset, sounds, ID_2_F0, cond, file_name, ms_1_F0, trigger_verbsonset, present_past, trigger_2_F0, item_id, ms_senonset, ID_1_F0, trigger_1_F0, syll, ID_item, trigger_item, ID_suffix, ms_suffix, suffix, corrAns, trigger_senonset, ms_verbonset
-25.5449     INFO     Loaded monitor calibration from ['2025_03_24 10:43']
-25.6130     EXP     Imported selected_practice.csv as conditions, 4 conditions, 26 params
-25.6247     EXP     Imported selected_trials.csv as conditions, 40 conditions, 26 params
-25.6249     WARNING     duplicate variable names: ID_senonset, ms_2_F0, trigger_suffix, stress_unstress, ID_verbonset, sounds, ID_2_F0, cond, file_name, ms_1_F0, trigger_verbsonset, present_past, trigger_2_F0, item_id, ms_senonset, ID_1_F0, trigger_1_F0, syll, ID_item, trigger_item, ID_suffix, ms_suffix, suffix, corrAns, trigger_senonset, ms_verbonset
-25.6371     INFO     Loaded monitor calibration from ['2025_03_24 10:43']
-Generating PsychoJS script...
-
-Alert 4340: The component or routine 'SerialOutComponent' is only implemented locally, so will do nothing when running online.
-For more info see https://docs.psychopy.org/alerts/4340.htmlAlert 4340: The component or routine 'SerialOutComponent' is only implemented locally, so will do nothing when running online.
-For more info see https://docs.psychopy.org/alerts/4340.htmlAlert 4340: The component or routine 'SerialOutComponent' is only implemented locally, so will do nothing when running online.
-For more info see https://docs.psychopy.org/alerts/4340.htmlAlert 4340: The component or routine 'SerialOutComponent' is only implemented locally, so will do nothing when running online.
-For more info see https://docs.psychopy.org/alerts/4340.htmlAlert 4340: The component or routine 'SerialOutComponent' is only implemented locally, so will do nothing when running online.
-For more info see https://docs.psychopy.org/alerts/4340.htmlAlert 4340: The component or routine 'SerialOutComponent' is only implemented locally, so will do nothing when running online.
-For more info see https://docs.psychopy.org/alerts/4340.htmlAlert 4210: JavaScript Syntax Error in 'Begin JS Experiment' tab. See 'Line 1: Unexpected token' in the 'Begin JS Experiment' tab.
-For more info see https://docs.psychopy.org/alerts/4210.htmlAlert 4210: JavaScript Syntax Error in 'Begin JS Experiment' tab. See 'Line 1: Unexpected token' in the 'Begin JS Experiment' tab.
-For more info see https://docs.psychopy.org/alerts/4210.html27.1280     EXP     Imported selected_practice.csv as conditions, 4 conditions, 26 params
-27.1391     EXP     Imported selected_trials.csv as conditions, 40 conditions, 26 params
-27.1392     WARNING     duplicate variable names: ID_senonset, ms_2_F0, trigger_suffix, stress_unstress, ID_verbonset, sounds, ID_2_F0, cond, file_name, ms_1_F0, trigger_verbsonset, present_past, trigger_2_F0, item_id, ms_senonset, ID_1_F0, trigger_1_F0, syll, ID_item, trigger_item, ID_suffix, ms_suffix, suffix, corrAns, trigger_senonset, ms_verbonset
-27.1781     EXP     Imported C:\Users\eegadmin\Desktop\4_8\4_8\Psychopy experiment\selected_practice.csv as conditions, 4 conditions, 26 params
-27.1865     EXP     Imported C:\Users\eegadmin\Desktop\4_8\4_8\Psychopy experiment\selected_trials.csv as conditions, 40 conditions, 26 params
-27.4681     EXP     Imported C:\Users\eegadmin\Desktop\4_8\4_8\Psychopy experiment\selected_practice.csv as conditions, 4 conditions, 26 params
-27.4811     EXP     Imported C:\Users\eegadmin\Desktop\4_8\4_8\Psychopy experiment\selected_trials.csv as conditions, 40 conditions, 26 params
-27.5341     ERROR     invalid syntax (<unknown>, line 1)
-27.5342     ERROR     invalid syntax (<unknown>, line 1)
-27.7700     ERROR     Error parsing JS in LangExperimentstress.js:
-Line 135: Unexpected token
-Alert 4340: The component or routine 'SerialOutComponent' is only implemented locally, so will do nothing when running online.
-For more info see https://docs.psychopy.org/alerts/4340.htmlAlert 4340: The component or routine 'SerialOutComponent' is only implemented locally, so will do nothing when running online.
-For more info see https://docs.psychopy.org/alerts/4340.htmlAlert 4340: The component or routine 'SerialOutComponent' is only implemented locally, so will do nothing when running online.
-For more info see https://docs.psychopy.org/alerts/4340.htmlAlert 4340: The component or routine 'SerialOutComponent' is only implemented locally, so will do nothing when running online.
-For more info see https://docs.psychopy.org/alerts/4340.htmlAlert 4340: The component or routine 'SerialOutComponent' is only implemented locally, so will do nothing when running online.
-For more info see https://docs.psychopy.org/alerts/4340.htmlAlert 4340: The component or routine 'SerialOutComponent' is only implemented locally, so will do nothing when running online.
-For more info see https://docs.psychopy.org/alerts/4340.htmlAlert 4210: JavaScript Syntax Error in 'Begin JS Experiment' tab. See 'Line 1: Unexpected token' in the 'Begin JS Experiment' tab.
-For more info see https://docs.psychopy.org/alerts/4210.htmlAlert 4210: JavaScript Syntax Error in 'Begin JS Experiment' tab. See 'Line 1: Unexpected token' in the 'Begin JS Experiment' tab.
-For more info see https://docs.psychopy.org/alerts/4210.html27.8124     EXP     Imported C:\Users\eegadmin\Desktop\4_8\4_8\Psychopy experiment\selected_practice.csv as conditions, 4 conditions, 26 params
-27.8213     EXP     Imported C:\Users\eegadmin\Desktop\4_8\4_8\Psychopy experiment\selected_trials.csv as conditions, 40 conditions, 26 params
-28.2527     EXP     Imported C:\Users\eegadmin\Desktop\4_8\4_8\Psychopy experiment\selected_practice.csv as conditions, 4 conditions, 26 params
-28.2644     EXP     Imported C:\Users\eegadmin\Desktop\4_8\4_8\Psychopy experiment\selected_trials.csv as conditions, 40 conditions, 26 params
-28.3038     ERROR     invalid syntax (<unknown>, line 1)
-28.3039     ERROR     invalid syntax (<unknown>, line 1)
-28.6172     ERROR     Error parsing JS in LangExperimentstress-legacy-browsers.js:
-Line 127: Unexpected token
-##### PsychoJS libs downloaded to C:\Users\eegadmin\Desktop\4_8\4_8\Psychopy experiment\html\lib #####
-
+34.8358     EXP     Imported selected_practice.csv as conditions, 4 conditions, 26 params
+34.8481     EXP     Imported selected_trials.csv as conditions, 40 conditions, 26 params
+34.8483     WARNING     duplicate variable names: trigger_senonset, corrAns, trigger_suffix, ID_verbonset, ms_1_F0, ms_2_F0, trigger_item, ms_senonset, present_past, trigger_verbsonset, ID_senonset, ID_2_F0, suffix, syll, ID_1_F0, cond, ms_suffix, item_id, ms_verbonset, stress_unstress, trigger_1_F0, sounds, ID_suffix, trigger_2_F0, file_name, ID_item
+34.8604     INFO     Loaded monitor calibration from ['2025_03_24 10:43']
+34.9248     EXP     Imported selected_practice.csv as conditions, 4 conditions, 26 params
+34.9361     EXP     Imported selected_trials.csv as conditions, 40 conditions, 26 params
+34.9363     WARNING     duplicate variable names: trigger_senonset, corrAns, trigger_suffix, ID_verbonset, ms_1_F0, ms_2_F0, trigger_item, ms_senonset, present_past, trigger_verbsonset, ID_senonset, ID_2_F0, suffix, syll, ID_1_F0, cond, ms_suffix, item_id, ms_verbonset, stress_unstress, trigger_1_F0, sounds, ID_suffix, trigger_2_F0, file_name, ID_item
+34.9432     INFO     Loaded monitor calibration from ['2025_03_24 10:43']
 Generating PsychoPy script...
 
 ## Running: C:\Users\eegadmin\Desktop\4_8\4_8\Psychopy experiment\LangExperimentstress_lastrun.py ##
-##### Running PsychoJS task from C:\Users\eegadmin\Desktop\4_8\4_8\Psychopy experiment\html on port 12002 #####
-
-33.0899     INFO     Local server started on port 12002 in directory C:\Users\eegadmin\Desktop\4_8\4_8\Psychopy experiment\html
-33.2204     EXP     Imported selected_practice.csv as conditions, 4 conditions, 26 params
-33.2359     EXP     Imported selected_trials.csv as conditions, 40 conditions, 26 params
-33.2361     WARNING     duplicate variable names: ID_senonset, ms_2_F0, trigger_suffix, stress_unstress, ID_verbonset, sounds, ID_2_F0, cond, file_name, ms_1_F0, trigger_verbsonset, present_past, trigger_2_F0, item_id, ms_senonset, ID_1_F0, trigger_1_F0, syll, ID_item, trigger_item, ID_suffix, ms_suffix, suffix, corrAns, trigger_senonset, ms_verbonset
+36.6597     EXP     Imported selected_practice.csv as conditions, 4 conditions, 26 params
+36.6734     EXP     Imported selected_trials.csv as conditions, 40 conditions, 26 params
+36.6735     WARNING     duplicate variable names: trigger_senonset, corrAns, trigger_suffix, ID_verbonset, ms_1_F0, ms_2_F0, trigger_item, ms_senonset, present_past, trigger_verbsonset, ID_senonset, ID_2_F0, suffix, syll, ID_1_F0, cond, ms_suffix, item_id, ms_verbonset, stress_unstress, trigger_1_F0, sounds, ID_suffix, trigger_2_F0, file_name, ID_item
+7.4413     WARNING     launchHubServer: If using the iohub mouse or eyetracker devices, fullScr should be True.
 C:\Users\eegadmin\Desktop\4_8\4_8\Psychopy experiment\LangExperimentstress_lastrun.py:411: DeprecationWarning: DataFrameGroupBy.apply operated on the grouping columns. This behavior is deprecated, and in a future version of pandas the grouping columns will be excluded from the operation. Either pass `include_groups=False` to exclude the groupings or explicitly select the grouping columns after groupby to silence this warning.
-11.7080     WARNING     launchHubServer: If using the iohub mouse or eyetracker devices, fullScr should be True.
   selected_practice = practice_trials.groupby('item_id').apply(lambda x: x.sample(1)).reset_index(drop=True)
 C:\Users\eegadmin\Desktop\4_8\4_8\Psychopy experiment\LangExperimentstress_lastrun.py:469: DeprecationWarning: DataFrameGroupBy.apply operated on the grouping columns. This behavior is deprecated, and in a future version of pandas the grouping columns will be excluded from the operation. Either pass `include_groups=False` to exclude the groupings or explicitly select the grouping columns after groupby to silence this warning.
   selected_trials = experiment_trials.groupby('item_id').apply(lambda x: x.sample(1)).reset_index(drop=True)
@@ -65,6 +23,6 @@ Traceback (most recent call last):
   File "C:\Users\eegadmin\Desktop\4_8\4_8\Psychopy experiment\LangExperimentstress_lastrun.py", line 995, in run
     current_loop = thisExp._loopList[-1]  # Get the most recent loop
 AttributeError: 'ExperimentHandler' object has no attribute '_loopList'
-3.3186     WARNING     Monitor specification not found. Creating a temporary one...
+2.3930     WARNING     Monitor specification not found. Creating a temporary one...
 ioHub Server Process Completed With Code:  0
-################ Experiment ended with exit code 1 [pid:10432] #################
+################# Experiment ended with exit code 1 [pid:4596] #################
