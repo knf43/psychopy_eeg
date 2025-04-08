@@ -1,34 +1,66 @@
 import pandas as pd
+import random
 
-# Load full practice file
-df = pd.read_excel('conditions_stress_practice.xlsx')
+# Load full experimental file
+df = pd.read_excel('conditions_stress.xlsx')
 
 # Add helper columns if missing
 if 'file_name' not in df.columns:
     df['file_name'] = df['sounds'].apply(lambda x: x.split("/")[-1])
+    df['item_id'] = df['file_name'].apply(lambda x: x[:2])
+    df['cond'] = df['file_name'].apply(lambda x: x[2])
 
-# Extract sentence ID and condition
-df['sentence'] = df['file_name'].apply(lambda x: x[:2])   # e.g., 'p1'
-df['cond'] = df['file_name'].apply(lambda x: x[2])        # e.g., 'a'
+# Get participant number
+try:
+    pnum = int(expInfo['participant'])
+except:
+    pnum = 1
 
-# Define exact practice trials: p1a, p2b, p3c, p4d
-df['combo'] = df['sentence'] + df['cond']
-target_combos = ['p1a', 'p2b', 'p3c', 'p4d']
-selected_practice = df[df['combo'].isin(target_combos)].reset_index(drop=True)
+# Rotation scheme based on participant
+rotation = (pnum - 1) % 8
+condition_orders = [
+    ['a', 'b', 'c', 'd'],
+    ['b', 'c', 'd', 'a'],
+    ['c', 'd', 'a', 'b'],
+    ['d', 'a', 'b', 'c'],
+    ['a', 'c', 'b', 'd'],
+    ['b', 'd', 'a', 'c'],
+    ['c', 'a', 'd', 'b'],
+    ['d', 'b', 'c', 'a'],
+]
+order = condition_orders[rotation]
 
-# Error if missing
-if selected_practice.shape[0] != 4:
-    raise ValueError("Expected p1a, p2b, p3c, p4d in conditions_stress_practice.xlsx")
+# Get one row per item_id + cond
+unique = (
+    df.groupby(['cond', 'item_id'], group_keys=False)
+      .apply(lambda x: x.sample(1))
+      .reset_index(drop=True)
+)
+
+# Select 10 trials per condition in order
+used_ids = set()
+selected = []
+
+for cond in order:
+    cond_df = unique[(unique['cond'] == cond) & (~unique['item_id'].isin(used_ids))]
+    if len(cond_df) < 10:
+        raise ValueError(f"Not enough unique items for condition '{cond}'")
+    sample = cond_df.sample(10, random_state=rotation)
+    used_ids.update(sample['item_id'].tolist())
+    selected.append(sample)
+
+# Combine and shuffle
+final = pd.concat(selected).sample(frac=1, random_state=rotation).reset_index(drop=True)
 
 # Convert ID_* columns to int
-id_cols = [col for col in selected_practice.columns if col.startswith("ID_")]
+id_cols = [col for col in final.columns if col.startswith("ID_")]
 for col in id_cols:
-    selected_practice[col] = selected_practice[col].fillna(0).astype(int)
+    final[col] = final[col].fillna(0).astype(int)
 
-# Convert trigger_* columns to float (in seconds)
-trigger_cols = [col for col in selected_practice.columns if col.startswith("trigger_")]
+# Convert trigger_* columns to float (already in seconds)
+trigger_cols = [col for col in final.columns if col.startswith("trigger_")]
 for col in trigger_cols:
-    selected_practice[col] = selected_practice[col].fillna(0).astype(float)
+    final[col] = final[col].fillna(0).astype(float)
 
-# Save final .csv
-selected_practice.to_csv('selected_practice.csv', index=False)
+# Save full final trial list
+final.to_csv('selected_trials.csv', index=False)
