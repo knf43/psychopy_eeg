@@ -674,7 +674,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         extraInfo=expInfo,
         originPath=-1,
         trialList=trials_selected,
-        seed=None,
+        seed=0,
     )
     thisExp.addLoop(trials)
     thisTrial = trials.trialList[0]
@@ -715,7 +715,8 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         trialList=practice_rows,
         nReps=1,
         method='sequential',
-        extraInfo=expInfo
+        extraInfo=expInfo,
+        seed=0
     )
     thisExp.addLoop(practice)
 
@@ -759,7 +760,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
 
         test.forceEnded = routineForceEnded = not continueRoutine
         
-        sent_triggers = set
+        sent_triggers = set()
         while continueRoutine:
             t = routineTimer.getTime()
             tThisFlip = win.getFutureFlipTime(clock=routineTimer)
