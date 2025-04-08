@@ -34,3 +34,30 @@ soundfile.LibsndfileError: Error opening 'selected_practice.csv': Format not rec
 2.2799     WARNING     Monitor specification not found. Creating a temporary one...
 ioHub Server Process Completed With Code:  0
 ################# Experiment ended with exit code 1 [pid:9712] #################
+PTB-INFO: Using PortAudio V19.7.0-devel, revision unknown
+Generating PsychoPy script...
+
+## Running: C:\Users\eegadmin\Desktop\4_8\4_8\Psychopy experiment\LangExperimentstress_lastrun.py ##
+209.7073     EXP     Imported selected_practice.csv as conditions, 0 conditions, 27 params
+209.7299     EXP     Imported selected_trials.csv as conditions, 40 conditions, 26 params
+209.7302     WARNING     duplicate variable names: trigger_item, trigger_2_F0, ms_2_F0, ms_suffix, file_name, stress_unstress, present_past, ID_2_F0, ID_verbonset, code, cond, ID_suffix, ms_verbonset, sounds, suffix, trigger_verbsonset, ms_1_F0, trigger_1_F0, corrAns, ID_1_F0, ID_item, trigger_senonset, ID_senonset, trigger_suffix, item_id, syll, ms_senonset
+209.7595     INFO     Loaded monitor calibration from ['2025_03_24 10:43']
+209.8105     EXP     Imported selected_practice.csv as conditions, 0 conditions, 27 params
+209.8230     EXP     Imported selected_trials.csv as conditions, 40 conditions, 26 params
+209.8231     WARNING     duplicate variable names: trigger_item, trigger_2_F0, ms_2_F0, ms_suffix, file_name, stress_unstress, present_past, ID_2_F0, ID_verbonset, code, cond, ID_suffix, ms_verbonset, sounds, suffix, trigger_verbsonset, ms_1_F0, trigger_1_F0, corrAns, ID_1_F0, ID_item, trigger_senonset, ID_senonset, trigger_suffix, item_id, syll, ms_senonset
+209.8312     INFO     Loaded monitor calibration from ['2025_03_24 10:43']
+209.8975     EXP     Imported selected_practice.csv as conditions, 0 conditions, 27 params
+209.9088     EXP     Imported selected_trials.csv as conditions, 40 conditions, 26 params
+209.9090     WARNING     duplicate variable names: trigger_item, trigger_2_F0, ms_2_F0, ms_suffix, file_name, stress_unstress, present_past, ID_2_F0, ID_verbonset, code, cond, ID_suffix, ms_verbonset, sounds, suffix, trigger_verbsonset, ms_1_F0, trigger_1_F0, corrAns, ID_1_F0, ID_item, trigger_senonset, ID_senonset, trigger_suffix, item_id, syll, ms_senonset
+11.5384     WARNING     launchHubServer: If using the iohub mouse or eyetracker devices, fullScr should be True.
+C:\Users\eegadmin\Desktop\4_8\4_8\Psychopy experiment\LangExperimentstress_lastrun.py:529: DeprecationWarning: DataFrameGroupBy.apply operated on the grouping columns. This behavior is deprecated, and in a future version of pandas the grouping columns will be excluded from the operation. Either pass `include_groups=False` to exclude the groupings or explicitly select the grouping columns after groupby to silence this warning.
+  .apply(lambda x: x.sample(1))
+Traceback (most recent call last):
+  File "C:\Users\eegadmin\Desktop\4_8\4_8\Psychopy experiment\LangExperimentstress_lastrun.py", line 2036, in <module>
+    run(
+  File "C:\Users\eegadmin\Desktop\4_8\4_8\Psychopy experiment\LangExperimentstress_lastrun.py", line 882, in run
+    test_sound_2.setSound(sounds, hamming=True)
+NameError: name 'sounds' is not defined. Did you mean: 'sound'?
+2.3624     WARNING     Monitor specification not found. Creating a temporary one...
+ioHub Server Process Completed With Code:  0
+################# Experiment ended with exit code 1 [pid:2220] #################
