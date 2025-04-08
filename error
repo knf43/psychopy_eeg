@@ -1,6 +1,6 @@
 import pandas as pd
 
-# Load the full practice set
+# Load the full practice file
 df = pd.read_excel('conditions_stress_practice.xlsx')
 
 # Add columns if needed
@@ -9,16 +9,10 @@ if 'item_id' not in df.columns:
     df['item_id'] = df['file_name'].apply(lambda x: x[:2])
     df['cond'] = df['file_name'].apply(lambda x: x[2])
 
-# Fixed items to use
-target_combos = ['01a', '02b', '03c', '04d']
-df['combo'] = df['item_id'] + df['cond']
+# Define the one fixed set: 01a, 02b, 03c, 04d
+df['code'] = df['item_id'] + df['cond']
+fixed_order = ['01a', '02b', '03c', '04d']
+selected_practice = df[df['code'].isin(fixed_order)].reset_index(drop=True)
 
-# Select those items
-selected_practice = df[df['combo'].isin(target_combos)].reset_index(drop=True)
-
-# Safety check
-if selected_practice.empty or selected_practice.shape[0] < 4:
-    raise ValueError("selected_practice.csv not created correctly — check for missing items like 01a, 02b, etc.")
-
-# Save for PsychoPy to read
+# Save for PsychoPy loop
 selected_practice.to_csv('selected_practice.csv', index=False)
