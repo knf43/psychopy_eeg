@@ -1,18 +1,26 @@
-import pandas as pd
+Generating PsychoPy script...
 
-# Load the full practice file
-df = pd.read_excel('conditions_stress_practice.xlsx')
-
-# Add columns if needed
-if 'item_id' not in df.columns:
-    df['file_name'] = df['sounds'].apply(lambda x: x.split("/")[-1])
-    df['item_id'] = df['file_name'].apply(lambda x: x[:2])
-    df['cond'] = df['file_name'].apply(lambda x: x[2])
-
-# Define the one fixed set: 01a, 02b, 03c, 04d
-df['code'] = df['item_id'] + df['cond']
-fixed_order = ['01a', '02b', '03c', '04d']
-selected_practice = df[df['code'].isin(fixed_order)].reset_index(drop=True)
-
-# Save for PsychoPy loop
-selected_practice.to_csv('selected_practice.csv', index=False)
+## Running: C:\Users\eegadmin\Desktop\4_8\4_8\Psychopy experiment\LangExperimentstress_lastrun.py ##
+558.5346     EXP     Imported selected_practice.csv as conditions, 0 conditions, 27 params
+558.5492     EXP     Imported selected_trials.csv as conditions, 40 conditions, 26 params
+558.5494     WARNING     duplicate variable names: trigger_item, trigger_2_F0, ms_2_F0, ms_suffix, file_name, stress_unstress, present_past, ID_2_F0, ID_verbonset, code, cond, ID_suffix, ms_verbonset, sounds, suffix, trigger_verbsonset, ms_1_F0, trigger_1_F0, corrAns, ID_1_F0, ID_item, trigger_senonset, ID_senonset, trigger_suffix, item_id, syll, ms_senonset
+558.5696     INFO     Loaded monitor calibration from ['2025_03_24 10:43']
+558.6323     EXP     Imported selected_practice.csv as conditions, 0 conditions, 27 params
+558.6450     EXP     Imported selected_trials.csv as conditions, 40 conditions, 26 params
+558.6452     WARNING     duplicate variable names: trigger_item, trigger_2_F0, ms_2_F0, ms_suffix, file_name, stress_unstress, present_past, ID_2_F0, ID_verbonset, code, cond, ID_suffix, ms_verbonset, sounds, suffix, trigger_verbsonset, ms_1_F0, trigger_1_F0, corrAns, ID_1_F0, ID_item, trigger_senonset, ID_senonset, trigger_suffix, item_id, syll, ms_senonset
+558.6568     INFO     Loaded monitor calibration from ['2025_03_24 10:43']
+558.7573     EXP     Imported selected_practice.csv as conditions, 0 conditions, 27 params
+558.7691     EXP     Imported selected_trials.csv as conditions, 40 conditions, 26 params
+558.7693     WARNING     duplicate variable names: trigger_item, trigger_2_F0, ms_2_F0, ms_suffix, file_name, stress_unstress, present_past, ID_2_F0, ID_verbonset, code, cond, ID_suffix, ms_verbonset, sounds, suffix, trigger_verbsonset, ms_1_F0, trigger_1_F0, corrAns, ID_1_F0, ID_item, trigger_senonset, ID_senonset, trigger_suffix, item_id, syll, ms_senonset
+9.3045     WARNING     launchHubServer: If using the iohub mouse or eyetracker devices, fullScr should be True.
+C:\Users\eegadmin\Desktop\4_8\4_8\Psychopy experiment\LangExperimentstress_lastrun.py:513: DeprecationWarning: DataFrameGroupBy.apply operated on the grouping columns. This behavior is deprecated, and in a future version of pandas the grouping columns will be excluded from the operation. Either pass `include_groups=False` to exclude the groupings or explicitly select the grouping columns after groupby to silence this warning.
+  .apply(lambda x: x.sample(1))
+Traceback (most recent call last):
+  File "C:\Users\eegadmin\Desktop\4_8\4_8\Psychopy experiment\LangExperimentstress_lastrun.py", line 2020, in <module>
+    run(
+  File "C:\Users\eegadmin\Desktop\4_8\4_8\Psychopy experiment\LangExperimentstress_lastrun.py", line 866, in run
+    test_sound_2.setSound(sounds, hamming=True)
+NameError: name 'sounds' is not defined. Did you mean: 'sound'?
+2.2841     WARNING     Monitor specification not found. Creating a temporary one...
+ioHub Server Process Completed With Code:  0
+################# Experiment ended with exit code 1 [pid:9084] #################
