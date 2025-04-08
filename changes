@@ -1,7 +1,7 @@
-        if key_resp.status == STARTED:
-            if 'joy' in globals():
-                buttons = joy.getAllButtons()
-                if len(buttons) > 1 and buttons[1]:  # B button to continue
-                    key_resp.keys = 'b'
-                    key_resp.rt = globalClock.getTime()
-                    continueRoutine = False
+if key_resp_4.status == STARTED:
+    if 'joy' in globals():
+        buttons = joy.getAllButtons()
+        if len(buttons) > 1 and buttons[1]:  # B button to continue
+            key_resp_4.keys = 'b'
+            key_resp_4.rt = response_clock.getTime()
+            continueRoutine = False
