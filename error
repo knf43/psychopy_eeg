@@ -1,22 +1,50 @@
-import pandas as pd
+Generating PsychoPy script...
 
-# Load your master list
-df = pd.read_excel('conditions_stress_practice.xlsx')
+## Running: C:\Users\eegadmin\Desktop\4_8\4_8\Psychopy experiment\LangExperimentstress_lastrun.py ##
+558.5346     EXP     Imported selected_practice.csv as conditions, 0 conditions, 27 params
+558.5492     EXP     Imported selected_trials.csv as conditions, 40 conditions, 26 params
+558.5494     WARNING     duplicate variable names: trigger_item, trigger_2_F0, ms_2_F0, ms_suffix, file_name, stress_unstress, present_past, ID_2_F0, ID_verbonset, code, cond, ID_suffix, ms_verbonset, sounds, suffix, trigger_verbsonset, ms_1_F0, trigger_1_F0, corrAns, ID_1_F0, ID_item, trigger_senonset, ID_senonset, trigger_suffix, item_id, syll, ms_senonset
+558.5696     INFO     Loaded monitor calibration from ['2025_03_24 10:43']
+558.6323     EXP     Imported selected_practice.csv as conditions, 0 conditions, 27 params
+558.6450     EXP     Imported selected_trials.csv as conditions, 40 conditions, 26 params
+558.6452     WARNING     duplicate variable names: trigger_item, trigger_2_F0, ms_2_F0, ms_suffix, file_name, stress_unstress, present_past, ID_2_F0, ID_verbonset, code, cond, ID_suffix, ms_verbonset, sounds, suffix, trigger_verbsonset, ms_1_F0, trigger_1_F0, corrAns, ID_1_F0, ID_item, trigger_senonset, ID_senonset, trigger_suffix, item_id, syll, ms_senonset
+558.6568     INFO     Loaded monitor calibration from ['2025_03_24 10:43']
+558.7573     EXP     Imported selected_practice.csv as conditions, 0 conditions, 27 params
+558.7691     EXP     Imported selected_trials.csv as conditions, 40 conditions, 26 params
+558.7693     WARNING     duplicate variable names: trigger_item, trigger_2_F0, ms_2_F0, ms_suffix, file_name, stress_unstress, present_past, ID_2_F0, ID_verbonset, code, cond, ID_suffix, ms_verbonset, sounds, suffix, trigger_verbsonset, ms_1_F0, trigger_1_F0, corrAns, ID_1_F0, ID_item, trigger_senonset, ID_senonset, trigger_suffix, item_id, syll, ms_senonset
+9.3045     WARNING     launchHubServer: If using the iohub mouse or eyetracker devices, fullScr should be True.
+C:\Users\eegadmin\Desktop\4_8\4_8\Psychopy experiment\LangExperimentstress_lastrun.py:513: DeprecationWarning: DataFrameGroupBy.apply operated on the grouping columns. This behavior is deprecated, and in a future version of pandas the grouping columns will be excluded from the operation. Either pass `include_groups=False` to exclude the groupings or explicitly select the grouping columns after groupby to silence this warning.
+  .apply(lambda x: x.sample(1))
+Traceback (most recent call last):
+  File "C:\Users\eegadmin\Desktop\4_8\4_8\Psychopy experiment\LangExperimentstress_lastrun.py", line 2020, in <module>
+    run(
+  File "C:\Users\eegadmin\Desktop\4_8\4_8\Psychopy experiment\LangExperimentstress_lastrun.py", line 866, in run
+    test_sound_2.setSound(sounds, hamming=True)
+NameError: name 'sounds' is not defined. Did you mean: 'sound'?
+2.2841     WARNING     Monitor specification not found. Creating a temporary one...
+ioHub Server Process Completed With Code:  0
+################# Experiment ended with exit code 1 [pid:9084] #################
+Generating PsychoPy script...
 
-# Add helper columns if needed
-if 'item_id' not in df.columns:
-    df['file_name'] = df['sounds'].apply(lambda x: x.split("/")[-1])
-    df['item_id'] = df['file_name'].apply(lambda x: x[:2])
-    df['cond'] = df['file_name'].apply(lambda x: x[2])
-
-# Use a fixed set: 01a, 02b, 03c, 04d
-target_combos = ['01a', '02b', '03c', '04d']
-df['combo'] = df['item_id'] + df['cond']
-selected_practice = df[df['combo'].isin(target_combos)].reset_index(drop=True)
-
-# Check that you got all 4
-if selected_practice.shape[0] < 4:
+## Running: C:\Users\eegadmin\Desktop\4_8\4_8\Psychopy experiment\LangExperimentstress_lastrun.py ##
+785.8318     EXP     Imported selected_practice.csv as conditions, 0 conditions, 27 params
+785.8516     EXP     Imported selected_trials.csv as conditions, 40 conditions, 26 params
+785.8518     WARNING     duplicate variable names: trigger_item, trigger_2_F0, ms_2_F0, ms_suffix, file_name, stress_unstress, present_past, ID_2_F0, ID_verbonset, code, cond, ID_suffix, ms_verbonset, sounds, suffix, trigger_verbsonset, ms_1_F0, trigger_1_F0, corrAns, ID_1_F0, ID_item, trigger_senonset, ID_senonset, trigger_suffix, item_id, syll, ms_senonset
+785.8844     INFO     Loaded monitor calibration from ['2025_03_24 10:43']
+785.9352     EXP     Imported selected_practice.csv as conditions, 0 conditions, 27 params
+786.0778     EXP     Imported selected_trials.csv as conditions, 40 conditions, 26 params
+786.0780     WARNING     duplicate variable names: trigger_item, trigger_2_F0, ms_2_F0, ms_suffix, file_name, stress_unstress, present_past, ID_2_F0, ID_verbonset, code, cond, ID_suffix, ms_verbonset, sounds, suffix, trigger_verbsonset, ms_1_F0, trigger_1_F0, corrAns, ID_1_F0, ID_item, trigger_senonset, ID_senonset, trigger_suffix, item_id, syll, ms_senonset
+786.0846     INFO     Loaded monitor calibration from ['2025_03_24 10:43']
+786.1515     EXP     Imported selected_practice.csv as conditions, 0 conditions, 27 params
+786.1626     EXP     Imported selected_trials.csv as conditions, 40 conditions, 26 params
+786.1628     WARNING     duplicate variable names: trigger_item, trigger_2_F0, ms_2_F0, ms_suffix, file_name, stress_unstress, present_past, ID_2_F0, ID_verbonset, code, cond, ID_suffix, ms_verbonset, sounds, suffix, trigger_verbsonset, ms_1_F0, trigger_1_F0, corrAns, ID_1_F0, ID_item, trigger_senonset, ID_senonset, trigger_suffix, item_id, syll, ms_senonset
+7.5952     WARNING     launchHubServer: If using the iohub mouse or eyetracker devices, fullScr should be True.
+Traceback (most recent call last):
+  File "C:\Users\eegadmin\Desktop\4_8\4_8\Psychopy experiment\LangExperimentstress_lastrun.py", line 2024, in <module>
+    run(
+  File "C:\Users\eegadmin\Desktop\4_8\4_8\Psychopy experiment\LangExperimentstress_lastrun.py", line 435, in run
     raise ValueError("selected_practice.csv is missing trials. Check that 01a, 02b, 03c, and 04d exist in your Excel file.")
-
-# Save for practice loop
-selected_practice.to_csv('selected_practice.csv', index=False)
+ValueError: selected_practice.csv is missing trials. Check that 01a, 02b, 03c, and 04d exist in your Excel file.
+2.4151     WARNING     Monitor specification not found. Creating a temporary one...
+ioHub Server Process Completed With Code:  0
+################# Experiment ended with exit code 1 [pid:2396] #################
