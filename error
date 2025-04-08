@@ -1,7 +1,8 @@
 import pandas as pd
+import random
 
-# Load your practice pool
-df = pd.read_excel('conditions_stress_practice.xlsx')
+# Load your full trial list
+df = pd.read_excel('conditions_stress.xlsx')
 
 # Add columns if missing
 if 'item_id' not in df.columns:
@@ -9,26 +10,51 @@ if 'item_id' not in df.columns:
     df['item_id'] = df['file_name'].apply(lambda x: x[:2])
     df['cond'] = df['file_name'].apply(lambda x: x[2])
 
-# Get participant number (default to 1 if blank or invalid)
+# Get participant number from GUI
 try:
     pnum = int(expInfo['participant'])
 except:
     pnum = 1
 
-# Rotation order based on participant number (modulo 4)
-rotations = [
+# Use participant number to determine which of 8 fixed condition orders to use
+rotation = (pnum - 1) % 8
+
+# Define the 8 fixed condition selection orders
+condition_orders = [
     ['a', 'b', 'c', 'd'],
     ['b', 'c', 'd', 'a'],
     ['c', 'd', 'a', 'b'],
-    ['d', 'a', 'b', 'c']
+    ['d', 'a', 'b', 'c'],
+    ['a', 'c', 'b', 'd'],
+    ['b', 'd', 'a', 'c'],
+    ['c', 'a', 'd', 'b'],
+    ['d', 'b', 'c', 'a'],
 ]
-rotation = rotations[(pnum - 1) % 4]
-items = ['01', '02', '03', '04']
-codes = [f"{item}{cond}" for item, cond in zip(items, rotation)]
+order = condition_orders[rotation]
 
-# Select only those trials
-df['code'] = df['item_id'] + df['cond']
-selected_practice = df[df['code'].isin(codes)].reset_index(drop=True)
+# Make sure we only have one row per item_id and cond
+unique = (
+    df.groupby(['cond', 'item_id'], group_keys=False)
+      .apply(lambda x: x.sample(1))
+      .reset_index(drop=True)
+)
 
-# Save for loop
-selected_practice.to_csv('selected_practice.csv', index=False)
+# Sample 10 per condition without repeating item_ids
+used_ids = set()
+selected = []
+
+for cond in order:
+    cond_trials = unique[(unique['cond'] == cond) & (~unique['item_id'].isin(used_ids))]
+
+    if len(cond_trials) < 10:
+        raise ValueError(f"Not enough unique items in condition '{cond}' for participant {pnum}.")
+
+    sample = cond_trials.sample(10, random_state=rotation)
+    used_ids.update(sample['item_id'].tolist())
+    selected.append(sample)
+
+# Combine and shuffle final 40 trials
+final = pd.concat(selected).sample(frac=1, random_state=rotation).reset_index(drop=True)
+
+# Save for loop to use
+final.to_csv('selected_trials.csv', index=False)
