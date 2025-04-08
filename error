@@ -1,39 +1,34 @@
 import pandas as pd
 
-# Load file
-experiment_trials = pd.read_excel('conditions_stress.xlsx')
+# Load your practice pool
+df = pd.read_excel('conditions_stress_practice.xlsx')
 
-# Create columns if needed
-if 'item_id' not in experiment_trials.columns:
-    experiment_trials['file_name'] = experiment_trials['sounds'].apply(lambda x: x.split("/")[-1])
-    experiment_trials['item_id'] = experiment_trials['file_name'].apply(lambda x: x[:2])
-    experiment_trials['cond'] = experiment_trials['file_name'].apply(lambda x: x[2])
+# Add columns if missing
+if 'item_id' not in df.columns:
+    df['file_name'] = df['sounds'].apply(lambda x: x.split("/")[-1])
+    df['item_id'] = df['file_name'].apply(lambda x: x[:2])
+    df['cond'] = df['file_name'].apply(lambda x: x[2])
 
-# Define how many you want per condition
-n_items_per_cond = 10
-conditions = ['a', 'b', 'c', 'd']
-selected_list = []
+# Get participant number (default to 1 if blank or invalid)
+try:
+    pnum = int(expInfo['participant'])
+except:
+    pnum = 1
 
-# Loop through each condition and do safe sampling
-for cond in conditions:
-    cond_df = experiment_trials[experiment_trials['cond'] == cond]
+# Rotation order based on participant number (modulo 4)
+rotations = [
+    ['a', 'b', 'c', 'd'],
+    ['b', 'c', 'd', 'a'],
+    ['c', 'd', 'a', 'b'],
+    ['d', 'a', 'b', 'c']
+]
+rotation = rotations[(pnum - 1) % 4]
+items = ['01', '02', '03', '04']
+codes = [f"{item}{cond}" for item, cond in zip(items, rotation)]
 
-    # Get unique item_id entries only
-    cond_unique = (
-        cond_df
-        .groupby('item_id', group_keys=False)
-        .apply(lambda x: x.sample(1))
-        .reset_index(drop=True)
-    )
+# Select only those trials
+df['code'] = df['item_id'] + df['cond']
+selected_practice = df[df['code'].isin(codes)].reset_index(drop=True)
 
-    if len(cond_unique) < n_items_per_cond:
-        raise ValueError(f"Not enough unique items for condition '{cond}': found {len(cond_unique)}, need {n_items_per_cond}.")
-
-    selected = cond_unique.sample(n=n_items_per_cond)
-    selected_list.append(selected)
-
-# Combine and shuffle
-selected_trials = pd.concat(selected_list).sample(frac=1).reset_index(drop=True)
-
-# Save to file
-selected_trials.to_csv('selected_trials.csv', index=False)
+# Save for loop
+selected_practice.to_csv('selected_practice.csv', index=False)
