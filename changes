@@ -1,39 +1,7 @@
-from psychopy.hardware import joystick
-from psychopy import core
-
-# Set the backend to 'pygame'
-joystick.backend = 'pygame'
-
-# Initialize joystick
-nJoysticks = joystick.getNumJoysticks()
-if nJoysticks < 1:
-    print("No joystick detected.")
-    core.quit()
-
-joy = joystick.Joystick(0)
-print("Joystick connected:", joy.getName())
-
-# Track previous state to detect new presses
-prevLB = joy.getButton(4)
-prevRB = joy.getButton(5)
-
-print("Press LB or RB...")
-
-# Run until you quit manually
-while True:
-    lb = joy.getButton(4)
-    rb = joy.getButton(5)
-
-    # Check for LB press
-    if lb != prevLB:
-        prevLB = lb
-        if lb:
-            print("👈 LB pressed")
-
-    # Check for RB press
-    if rb != prevRB:
-        prevRB = rb
-        if rb:
-            print("👉 RB pressed")
-
-    core.wait(0.01)  # fast refresh for responsiveness
+        if key_resp.status == STARTED:
+            if 'joy' in globals():
+                buttons = joy.getAllButtons()
+                if len(buttons) > 1 and buttons[1]:  # B button to continue
+                    key_resp.keys = 'b'
+                    key_resp.rt = globalClock.getTime()
+                    continueRoutine = False
