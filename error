@@ -1,36 +1,34 @@
 import pandas as pd
 
-# Load your full practice file
+# Load full practice file
 df = pd.read_excel('conditions_stress_practice.xlsx')
 
-# Add helper columns if needed
+# Add helper columns if missing
 if 'file_name' not in df.columns:
     df['file_name'] = df['sounds'].apply(lambda x: x.split("/")[-1])
 
-# Extract sentence ID and condition from filenames like "p1a_saltar.wav"
+# Extract sentence ID and condition
 df['sentence'] = df['file_name'].apply(lambda x: x[:2])   # e.g., 'p1'
 df['cond'] = df['file_name'].apply(lambda x: x[2])        # e.g., 'a'
 
-# Define the exact 4 practice trials to select
-target_combos = ['p1a', 'p2b', 'p3c', 'p4d']
+# Define exact practice trials: p1a, p2b, p3c, p4d
 df['combo'] = df['sentence'] + df['cond']
-
-# Select only those rows
+target_combos = ['p1a', 'p2b', 'p3c', 'p4d']
 selected_practice = df[df['combo'].isin(target_combos)].reset_index(drop=True)
 
-# Error if anything is missing
+# Error if missing
 if selected_practice.shape[0] != 4:
-    raise ValueError("One or more of p1a, p2b, p3c, p4d is missing in conditions_stress_practice.xlsx")
+    raise ValueError("Expected p1a, p2b, p3c, p4d in conditions_stress_practice.xlsx")
 
-# Cast ID_* columns to int
+# Convert ID_* columns to int
 id_cols = [col for col in selected_practice.columns if col.startswith("ID_")]
 for col in id_cols:
     selected_practice[col] = selected_practice[col].fillna(0).astype(int)
 
-# Cast trigger_* and ms_* columns to float (in ms)
-trigger_cols = [col for col in selected_practice.columns if col.startswith("trigger_") or col.startswith("ms_")]
+# Convert trigger_* columns to float (in seconds)
+trigger_cols = [col for col in selected_practice.columns if col.startswith("trigger_")]
 for col in trigger_cols:
     selected_practice[col] = selected_practice[col].fillna(0).astype(float)
 
-# Save full set of columns for the loop
+# Save final .csv
 selected_practice.to_csv('selected_practice.csv', index=False)
