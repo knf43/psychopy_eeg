@@ -22,20 +22,15 @@ selected_practice = df[df['combo'].isin(target_combos)].reset_index(drop=True)
 if selected_practice.shape[0] != 4:
     raise ValueError("One or more of p1a, p2b, p3c, p4d is missing in conditions_stress_practice.xlsx")
 
-# Cast ID_* columns to int
+# Ensure ID_* columns are valid integers for use in serialPort.write(bytes([ID]))
 id_cols = [col for col in selected_practice.columns if col.startswith("ID_")]
 for col in id_cols:
-    selected_practice[col] = selected_practice[col].fillna(0).astype(int)
+    selected_practice[col] = pd.to_numeric(selected_practice[col], errors='coerce').fillna(0).astype(int)
 
-# Cast trigger_* and ms_* columns to float (in ms)
+# Ensure trigger_* and ms_* columns are float (in seconds)
 trigger_cols = [col for col in selected_practice.columns if col.startswith("trigger_") or col.startswith("ms_")]
 for col in trigger_cols:
-    selected_practice[col] = selected_practice[col].fillna(0).astype(float)
+    selected_practice[col] = pd.to_numeric(selected_practice[col], errors='coerce').fillna(0).astype(float)
 
-# Cast all ID_* columns to string to prevent PsychoPy write() crash
-id_cols = [col for col in selected_practice.columns if col.startswith("ID_")]
-for col in id_cols:
-    selected_practice[col] = selected_practice[col].astype(str).fillna("")
-    
 # Save full set of columns for the loop
 selected_practice.to_csv('selected_practice.csv', index=False)
