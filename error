@@ -1,7 +1,44 @@
-# Flags to make sure each trigger is only sent once
-sent_item = False
-sent_senonset = False
-sent_verbonset = False
-sent_1_F0 = False
-sent_suffix = False
-sent_2_F0 = False
+# Get current routine time
+t = routineTimer.getTime()
+
+# ITEM trigger
+if not sent_item and t >= trigger_item:
+    serialPort_item_2.write(bytes([int(ID_item)]))
+    core.wait(0.005)
+    serialPort_item_2.write(bytes([0]))
+    sent_item = True
+
+# SENONSET trigger
+if not sent_senonset and t >= trigger_senonset:
+    serialPort_senonset_2.write(bytes([int(ID_senonset)]))
+    core.wait(0.005)
+    serialPort_senonset_2.write(bytes([0]))
+    sent_senonset = True
+
+# VERBONSET trigger
+if not sent_verbonset and t >= trigger_verbsonset:
+    serialPort_verbonset_2.write(bytes([int(ID_verbonset)]))
+    core.wait(0.005)
+    serialPort_verbonset_2.write(bytes([0]))
+    sent_verbonset = True
+
+# 1st F0 trigger
+if not sent_1_F0 and t >= trigger_1_F0:
+    serialPort_1_F0_2.write(bytes([int(ID_1_F0)]))
+    core.wait(0.005)
+    serialPort_1_F0_2.write(bytes([0]))
+    sent_1_F0 = True
+
+# SUFFIX trigger
+if not sent_suffix and t >= trigger_suffix:
+    serialPort_suffix_2.write(bytes([int(ID_suffix)]))
+    core.wait(0.005)
+    serialPort_suffix_2.write(bytes([0]))
+    sent_suffix = True
+
+# 2nd F0 trigger
+if not sent_2_F0 and t >= trigger_2_F0:
+    serialPort_2_F0_2.write(bytes([int(ID_2_F0)]))
+    core.wait(0.005)
+    serialPort_2_F0_2.write(bytes([0]))
+    sent_2_F0 = True
