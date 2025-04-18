@@ -1,7 +1,6 @@
-if key_resp_4.status == STARTED:
-    if 'joy' in globals():
-        buttons = joy.getAllButtons()
-        if len(buttons) > 1 and buttons[1]:  # B button to continue
-            key_resp_4.keys = 'b'
-            key_resp_4.rt = response_clock.getTime()
-            continueRoutine = False
+# Get the loop that called this routine
+current_loop = currentLoop  # Get the most recent loop
+
+# Only run this routine after the last trial in the loop
+if current_loop.thisN != len(current_loop.trialList) - 1:
+    continueRoutine = False
