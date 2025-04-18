@@ -1,6 +1,3 @@
-# Get the loop that called this routine
-current_loop = currentLoop  # Get the most recent loop
-
-# Only run this routine after the last trial in the loop
-if current_loop.thisN != len(current_loop.trialList) - 1:
+# Show break only after every 10 trials, but not after the final trial
+if current_loop.thisN % 10 != 9 or current_loop.thisN == len(current_loop.trialList) - 1:
     continueRoutine = False
